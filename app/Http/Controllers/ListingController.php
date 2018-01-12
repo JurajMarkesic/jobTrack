@@ -40,6 +40,29 @@ class ListingController extends Controller
 //        //
 //    }
 
+    public function check(Request $request)
+    {
+        $listingTitle = $request->input('listingTitle');
+        $listingCompany = $request->input('listingCompany');
+
+        $user = Auth::user();
+
+//        if(in_array($listing , $user->listings)) {
+//
+//        }
+
+        $isSaved = false;
+
+        foreach($user->listings as $userListing) {
+            if(($userListing->title == $listingTitle) && ($userListing->company_name == $listingCompany)) {
+                $isSaved = true;
+            }
+        }
+        return response()->json([
+            'isSaved' => $isSaved
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

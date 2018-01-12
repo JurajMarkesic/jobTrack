@@ -1,81 +1,70 @@
 <template>
-     <div>
-        <div class="form-group">
-            <label for="_title">Title</label>
-            <input v-if="edit" id="_title" type="text" v-model="listing.title" @keyup="clearErrors"><br v-if="edit">
-            <span v-if="edit" v-text="errors.title"></span><br  v-if="edit">
+    <form action="" method="POST" class="form">
+        <div class="form-group row">
+            <label for="_title" class="col-3 col-form-label">Title</label>
+            <input v-if="edit" class="form-control col-6" id="_title" type="text" v-model="listing.title" @keyup="clearErrors">
             <span v-else>{{ listing.title }}</span>
         </div>
-
-         <div class="form-group">
-             <label for="_company_name">Company Name</label>
-             <input v-if="edit" id="_company_name" type="text" v-model="listing.company_name" @keyup="clearErrors"><br v-if="edit">
-             <span v-if="edit" v-text="errors.company_name"></span><br  v-if="edit">
+        <span v-if="edit" v-text="errors.title" class="form-text text-danger"></span>
+         <div class="form-group row">
+             <label for="_company_name" class="col-3 col-form-label">Company Name</label>
+             <input v-if="edit" class="form-control col-6" id="_company_name" type="text" v-model="listing.company_name" @keyup="clearErrors">
              <span v-else>{{ listing.company_name }}</span>
          </div>
-
-         <div class="form-group">
-             <label for="_location">Location</label>
-             <input v-if="edit" id="_location" type="text" v-model="listing.location" @keyup="clearErrors"><br v-if="edit">
-             <span v-if="edit" v-text="errors.location"></span><br  v-if="edit">
+        <span v-if="edit" v-text="errors.company_name" class="form-text text-danger"></span>
+         <div class="form-group row">
+             <label for="_location" class="col-3 col-form-label">Location</label>
+             <input v-if="edit" class="form-control col-6" id="_location" type="text" v-model="listing.location" @keyup="clearErrors">
              <span v-else>{{ listing.location }}</span>
          </div>
-
-         <div class="form-group">
-             <label for="_link">Link</label>
-             <input v-if="edit" id="_link" type="text" v-model="listing.link" @keyup="clearErrors"><br v-if="edit">
-             <span v-if="edit" v-text="errors.link"></span><br  v-if="edit">
+        <span v-if="edit" v-text="errors.location" class="form-text text-danger"></span>
+         <div class="form-group row">
+             <label for="_link" class="col-3 col-form-label">Link</label>
+             <input v-if="edit" class="form-control col-6" id="_link" type="text" v-model="listing.link" @keyup="clearErrors">
              <a target="_blank" v-else :href="listing.link">Link</a>
          </div>
-
-        <div class="form-group">
-            <label v-if="edit" for="_rating">Rating</label>
-            <input v-if="edit" id="_rating" type="number" min="1" max="10" v-model="listing.rating"><br v-if="edit">
-            <span v-if="edit" v-text="errors.rating"></span><br  v-if="edit">
+        <span v-if="edit" v-text="errors.link" class="form-text text-danger"></span>
+        <div class="form-group row" v-if="edit">
+            <label v-if="edit" for="_rating" class="col-3 col-form-label">Rating</label>
+            <input v-if="edit" class="form-control  col-1" id="_rating" type="number" min="1" max="10" v-model="listing.rating">
         </div>
-
-        <div class="form-group">
-            <label v-if="edit" for="_status">Status</label>
-            <select v-if="edit" id="_status" v-model="listing.status">
+        <span v-if="edit" v-text="errors.rating" class="form-text text-danger"></span>
+        <div class="form-group row" v-if="edit">
+            <label v-if="edit" for="_status" class="col-3 col-form-label">Status</label>
+            <select v-if="edit" class="form-control col-6" id="_status" v-model="listing.status">
                  <option value="Yet to apply">Yet to apply</option>
                  <option value="Applied">Applied</option>
                  <option value="Got a response">Got a response</option>
                  <option value="Got an interview">Got an interview</option>
                  <option value="Got the job!">Got the job!</option>
             </select><br v-if="edit">
-            <span v-if="edit" v-text="errors.status"></span>
         </div>
-
-         <div class="form-group"><br v-if="edit">
-             <label v-if="edit" for="_applied_on">Applied on</label>
-             <input v-if="edit" id="_applied_on" type="date" v-model="listing.contact.applied_on"  @keyup="clearErrors"><br v-if="edit">
-             <span v-if="edit" v-text="errors.applied_on"></span>
-             <br  v-if="edit">
+        <span v-if="edit" v-text="errors.status" class="form-text text-danger"></span>
+         <div class="form-group row" v-if="edit">
+             <label v-if="edit" for="_applied_on" class="col-3 col-form-label">Applied on</label>
+             <input v-if="edit" class="form-control col-6" id="_applied_on" type="date" v-model="listing.contact.applied_on"  @keyup="clearErrors">
          </div>
-
-         <div class="form-group">
-            <label v-if="edit" for="_contact_name">Contact Name</label>
-            <input v-if="edit" id="_contact_name" type="text" v-model="listing.contact.contact_name"  @keyup="clearErrors"><br v-if="edit">
-            <span v-if="edit" v-text="errors.contact_name"></span>
-            <br  v-if="edit">
+        <span v-if="edit" v-text="errors.applied_on" class="form-text text-danger"></span>
+         <div class="form-group row" v-if="edit">
+            <label v-if="edit" for="_contact_name" class="col-3 col-form-label">Contact Name</label>
+            <input v-if="edit" class="form-control col-6" id="_contact_name" type="text" v-model="listing.contact.contact_name"  @keyup="clearErrors">
          </div>
-
-         <div class="form-group">
-            <label v-if="edit" for="_contact_email">Contact email</label>
-            <input v-if="edit" id="_contact_email" type="email"  placeholder="sophie@example.com"
-                   v-model="listing.contact.contact_email"  @keyup="clearErrors"><br v-if="edit">
-            <span v-if="edit" v-text="errors.contact_email"></span>
-            <br  v-if="edit">
+        <span v-if="edit" v-text="errors.contact_name" class="form-text text-danger"></span>
+         <div class="form-group row" v-if="edit">
+            <label v-if="edit" for="_contact_email" class="col-3 col-form-label">Contact email</label>
+            <input v-if="edit" class="form-control col-6" id="_contact_email" type="email"  placeholder="sophie@example.com"
+                   v-model="listing.contact.contact_email"  @keyup="clearErrors">
          </div>
+        <span v-if="edit" v-text="errors.contact_email" class="form-text text-danger"></span>
+        <br v-if="edit">
+        <button v-if="edit" class="btn btn-success" @click.prevent="editListing" autofocus>Save</button>
+        <button v-else class="btn btn-outline-primary" @click.prevent="edit = true">Edit</button>
 
-        <button v-if="edit" class="btn" @click="editListing">Save</button>
-        <button v-else class="btn" @click="edit = true">Edit</button>
-
-        <button  v-if="edit" class="btn" @click="edit = false">Cancel</button>
-        <button v-else class="btn" @click="deleteListing">Delete</button>
+        <button  v-if="edit" class="btn btn-outline-secondary ml-1" @click.prevent="edit = false">Cancel</button>
+        <button v-else class="btn btn-danger ml-1" @click.prevent="deleteListing">Delete</button>
 
         <hr>
-    </div>
+    </form>
 </template>
 
 <script>
@@ -89,6 +78,7 @@
                     link: '',
                     title: '',
                     location: '',
+                    company_name: '',
                     rating: '',
                     status: '',
                     applied_on: '',
@@ -150,7 +140,7 @@
                 axios.delete('/listings/' + this.listing.id)
                     .then((response) => {
                         eventBus.$emit('listing-deleted');
-                        console.log("Listing deleted!");
+                        console.log("Listing successfully deleted!");
                     })
                     .then((error) => {
                         console.log(error);
@@ -161,6 +151,7 @@
                     link: '',
                     title: '',
                     location: '',
+                    company_name: '',
                     rating: '',
                     status: '',
                     applied_on: '',

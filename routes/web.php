@@ -24,6 +24,8 @@ Route::get('/jooble', 'PageController@jooble')->name('jooble');
 
 Route::get('/rss', 'PageController@rss')->name('rss');
 
+Route::post('/listings/check', 'ListingController@check');
+
 
 Route::post('/joobleAPI', 'JoobleApiController@getListings')->middleware('auth');
 

@@ -1,5 +1,5 @@
 <template>
-    <table class="table table-striped">
+    <table class="table table-striped mt-5">
         <templisting v-for="listing in sharedState.rssListings" :listing="listing" :key="listing.title"></templisting>
     </table>
 </template>

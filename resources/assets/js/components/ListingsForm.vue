@@ -1,18 +1,20 @@
 <template>
-    <form action="" method="POST" class="form">
-        <div class="form-group">
-            <label for="keywords">Keywords</label>
-            <input type="text" name="keywords" id="keywords" v-model="keywords"><br>
-            <span v-text="errors.keywords"></span><br>
+    <form action="" method="POST" class="form mt-5">
+        <div class="form-group row">
+            <label for="keywords" class="col-1 col-form-label">Keywords</label>
+            <input type="text" class="form-control col-4" name="keywords" id="keywords" v-model="keywords" @keyup="clearErrors">
         </div>
+        <span v-text="errors.keywords"  class="form-text text-danger"></span>
 
-        <div class="form-group">
-            <label for="location">Location</label>
-            <input type="text" name="location" id="location" v-model="location"><br>
-            <span v-text="errors.location"></span><br>
+        <div class="form-group row">
+            <label for="location" class="col-1 col-form-label">Location</label>
+            <input type="text" class="form-control col-4" name="location" id="location" v-model="location" @keyup="clearErrors">
+            <small class="text-muted mt-2 ml-2 ">Leave blank if you want to search the entirety of Croatia.</small>
         </div>
+        <span v-text="errors.location"  class="form-text text-danger"></span>
 
-        <button @click.prevent="fetchListings">Send</button>
+        <button @click.prevent="fetchListings" class="btn btn-primary">Send</button>
+        <br>
     </form>
 </template>
 
@@ -35,6 +37,7 @@
         },
         methods: {
             fetchListings() {
+                this.sharedState.joobleListings = [];
                 axios.post('/joobleAPI', {keywords: this.keywords, location: this.location})
                     .then((response) => {
 
@@ -44,16 +47,20 @@
                         this.location = "";
                         console.log(response.data);
                     }).catch((error) => {
-                        if(error.response.data.errors.keywords) {
-                            this.errors.keywords = error.response.data.errors.keywords[0];
-                        }
-                        if(error.response.data.errors.location) {
-                            this.errors.location = error.response.data.errors.location[0];
-                        }
-                        console.log(error);
+                    if (error.response.data.errors.keywords) {
+                        this.errors.keywords = error.response.data.errors.keywords[0];
+                    }
+                    if (error.response.data.errors.location) {
+                        this.errors.location = error.response.data.errors.location[0];
+                    }
+                    console.log(error);
                 })
+            },
+            clearErrors() {
+                this.errors.keywords = '';
+                this.errors.location = '';
+                }
             }
-        }
     }
 </script>
 

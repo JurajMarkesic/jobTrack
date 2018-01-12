@@ -1,12 +1,13 @@
 <template>
-    <form action="" method="POST" class="form">
-        <div class="form-group">
-            <label for="rsskeywords">Keywords</label>
-            <input type="text" id="rsskeywords" name="keywords" v-model="keywords" @keyup="clearErrors"><br>
-            <span v-text="errors.keywords"></span><br>
+    <form action="" method="POST" class="form mt-5">
+        <div class="form-group row">
+            <label for="rsskeywords" class="col-1 col-form-label">Keywords</label>
+            <input type="text" class="form-control col-4" id="rsskeywords" name="keywords" v-model="keywords" @keyup="clearErrors">
         </div>
+        <span v-text="errors.keywords"  class="form-text text-danger"></span>
 
-        <button @click.prevent="getListings">Send</button>
+        <button @click.prevent="getListings" class="btn btn-primary">Send</button>
+        <br>
     </form>
 </template>
 
@@ -25,6 +26,7 @@
         },
         methods: {
             getListings() {
+                this.sharedState.rssListings = [];
                 axios.post('/getRSS', {
                     keywords: this.keywords
                 })

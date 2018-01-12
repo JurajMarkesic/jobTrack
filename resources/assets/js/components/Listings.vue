@@ -1,6 +1,7 @@
 <template>
     <div>
         <listing v-for="listing in listings" :listing="listing" :key="listing.id"></listing>
+        <p v-if="!listings.length" class="text-warning">You have no listings saved!</p>
     </div>
 </template>
 

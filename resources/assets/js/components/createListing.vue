@@ -1,27 +1,28 @@
 <template>
     <form action="" method="POST" class="form">
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" v-model="title"><br>
-            <span v-text="errors.title"></span><br>
+        <div class="formt-group row">
+            <label for="title" class="col-3 col-form-label">Title</label>
+            <input type="text"  class="form-control col-6" id="title" name="title" v-model="title"  @keyup="clearErrors"><br>
         </div>
-        <div class="form-group">
-            <label for="company_name">Company Name</label>
-            <input type="text" id="company_name" name="company_name" v-model="company_name"><br>
-            <span v-text="errors.company_name"></span><br>
+        <span v-text="errors.title"  class="form-text text-danger"></span>
+        <div class="formt-group row">
+            <label for="company_name" class="col-3 col-form-label">Company Name</label>
+            <input type="text" class="form-control col-6" id="company_name" name="company_name" v-model="company_name"  @keyup="clearErrors"><br>
         </div>
-        <div class="form-group">
-            <label for="location">Location</label>
-            <input type="text" id="location" name="location" v-model="location"><br>
-            <span v-text="errors.location"></span><br>
+        <span v-text="errors.company_name"  class="form-text text-danger"></span>
+        <div class="formt-group row">
+            <label for="location" class="col-3 col-form-label">Location</label>
+            <input type="text" class="form-control col-6" id="location" name="location" v-model="location"  @keyup="clearErrors"><br>
         </div>
-        <div class="form-group">
-            <label for="link">Link</label>
-            <input type="url" id="link" name="link" v-model="link"><br>
-            <span v-text="errors.link"></span><br>
+        <span v-text="errors.location"  class="form-text text-danger"></span>
+        <div class="formt-group row">
+            <label for="link" class="col-3 col-form-label">Link</label>
+            <input type="url" class="form-control col-6" id="link" name="link" v-model="link"  @keyup="clearErrors"><br>
         </div>
+        <span v-text="errors.link"  class="form-text text-danger"></span>
 
-        <button @click.prevent="storeListing">Send</button>
+        <button @click.prevent="storeListing" class="btn btn-primary">Send</button>
+        <br>
     </form>
 </template>
 
@@ -57,21 +58,29 @@
                     this.link = '';
                     console.log(response.data);
                 }).catch((error) => {
-                    if(error.response.data.errors.title) {
+                    if (error.response.data.errors.title) {
                         this.errors.title = error.response.data.errors.title[0];
                     }
-                    if(error.response.data.errors.company_name) {
+                    if (error.response.data.errors.company_name) {
                         this.errors.company_name = error.response.data.errors.company_name[0];
                     }
-                    if(error.response.data.errors.location) {
+                    if (error.response.data.errors.location) {
                         this.errors.location = error.response.data.errors.location[0];
                     }
-                    if(error.response.data.errors.link) {
+                    if (error.response.data.errors.link) {
                         this.errors.link = error.response.data.errors.link[0];
                     }
                     console.log(this.errors);
 
                 })
+            },
+            clearErrors() {
+                this.errors = {
+                    link: '',
+                    title: '',
+                    location: '',
+                    company_name: ''
+                };
             }
         }
     }

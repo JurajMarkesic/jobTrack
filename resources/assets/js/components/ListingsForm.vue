@@ -1,14 +1,14 @@
 <template>
     <form action="" method="POST" class="form mt-5">
         <div class="form-group row">
-            <label for="keywords" class="col-1 col-form-label">Keywords</label>
-            <input type="text" class="form-control col-4" name="keywords" id="keywords" v-model="keywords" @keyup="clearErrors">
+            <label for="keywords" class="col-3 col-md-1 col-form-label">Keywords</label>
+            <input type="text" class="form-control col-7 col-md-4" name="keywords" id="keywords" v-model="keywords" @keyup="clearErrors">
         </div>
         <span v-text="errors.keywords"  class="form-text text-danger"></span>
 
         <div class="form-group row">
-            <label for="location" class="col-1 col-form-label">Location</label>
-            <input type="text" class="form-control col-4" name="location" id="location" v-model="location" @keyup="clearErrors">
+            <label for="location" class="col-3 col-md-1 col-form-label">Location</label>
+            <input type="text" class="form-control col-7 col-md-4" name="location" id="location" v-model="location" @keyup="clearErrors">
             <small class="text-muted mt-2 ml-2 ">Leave blank if you want to search the entirety of Croatia.</small>
         </div>
         <span v-text="errors.location"  class="form-text text-danger"></span>

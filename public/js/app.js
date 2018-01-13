@@ -57620,7 +57620,10 @@ var render = function() {
       _c("div", { staticClass: "form-group row" }, [
         _c(
           "label",
-          { staticClass: "col-1 col-form-label", attrs: { for: "keywords" } },
+          {
+            staticClass: "col-3 col-md-1 col-form-label",
+            attrs: { for: "keywords" }
+          },
           [_vm._v("Keywords")]
         ),
         _vm._v(" "),
@@ -57633,7 +57636,7 @@ var render = function() {
               expression: "keywords"
             }
           ],
-          staticClass: "form-control col-4",
+          staticClass: "form-control col-7 col-md-4",
           attrs: { type: "text", name: "keywords", id: "keywords" },
           domProps: { value: _vm.keywords },
           on: {
@@ -57656,7 +57659,10 @@ var render = function() {
       _c("div", { staticClass: "form-group row" }, [
         _c(
           "label",
-          { staticClass: "col-1 col-form-label", attrs: { for: "location" } },
+          {
+            staticClass: "col-3 col-md-1 col-form-label",
+            attrs: { for: "location" }
+          },
           [_vm._v("Location")]
         ),
         _vm._v(" "),
@@ -57669,7 +57675,7 @@ var render = function() {
               expression: "location"
             }
           ],
-          staticClass: "form-control col-4",
+          staticClass: "form-control col-7 col-md-4",
           attrs: { type: "text", name: "location", id: "location" },
           domProps: { value: _vm.location },
           on: {
@@ -57891,6 +57897,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -57947,7 +57954,7 @@ var render = function() {
   return _c("tr", { staticClass: "row" }, [
     _c("td", { staticClass: "col-3" }, [_vm._v(_vm._s(_vm.listing.title))]),
     _vm._v(" "),
-    _c("td", { staticClass: "col-3" }, [_vm._v(_vm._s(_vm.listing.location))]),
+    _c("td", { staticClass: "col-2" }, [_vm._v(_vm._s(_vm.listing.location))]),
     _vm._v(" "),
     _c("td", { staticClass: "col-3" }, [_vm._v(_vm._s(_vm.listing.company))]),
     _vm._v(" "),
@@ -57959,7 +57966,7 @@ var render = function() {
       _c("button", { on: { click: _vm.saveListing } }, [_vm._v("Save")])
     ]),
     _vm._v(" "),
-    _c("td", { staticClass: "col-1" }, [
+    _c("td", { staticClass: "col-1 offset-1" }, [
       _vm.isAdded
         ? _c("i", {
             staticClass: "fa fa-check fa-lg",
@@ -58342,7 +58349,10 @@ var render = function() {
       _c("div", { staticClass: "form-group row" }, [
         _c(
           "label",
-          { staticClass: "col-3 col-form-label", attrs: { for: "_title" } },
+          {
+            staticClass: "col-4 col-md-3 col-form-label",
+            attrs: { for: "_title" }
+          },
           [_vm._v("Title")]
         ),
         _vm._v(" "),
@@ -58383,7 +58393,7 @@ var render = function() {
         _c(
           "label",
           {
-            staticClass: "col-3 col-form-label",
+            staticClass: "col-4 col-md-3 col-form-label",
             attrs: { for: "_company_name" }
           },
           [_vm._v("Company Name")]
@@ -58425,7 +58435,10 @@ var render = function() {
       _c("div", { staticClass: "form-group row" }, [
         _c(
           "label",
-          { staticClass: "col-3 col-form-label", attrs: { for: "_location" } },
+          {
+            staticClass: "col-4 col-md-3 col-form-label",
+            attrs: { for: "_location" }
+          },
           [_vm._v("Location")]
         ),
         _vm._v(" "),
@@ -58465,7 +58478,10 @@ var render = function() {
       _c("div", { staticClass: "form-group row" }, [
         _c(
           "label",
-          { staticClass: "col-3 col-form-label", attrs: { for: "_link" } },
+          {
+            staticClass: "col-4 col-md-3 col-form-label",
+            attrs: { for: "_link" }
+          },
           [_vm._v("Link")]
         ),
         _vm._v(" "),
@@ -58510,7 +58526,7 @@ var render = function() {
               ? _c(
                   "label",
                   {
-                    staticClass: "col-3 col-form-label",
+                    staticClass: "col-4 col-md-3 col-form-label",
                     attrs: { for: "_rating" }
                   },
                   [_vm._v("Rating")]
@@ -58556,7 +58572,7 @@ var render = function() {
               ? _c(
                   "label",
                   {
-                    staticClass: "col-3 col-form-label",
+                    staticClass: "col-4 col-md-3 col-form-label",
                     attrs: { for: "_status" }
                   },
                   [_vm._v("Status")]
@@ -58637,7 +58653,7 @@ var render = function() {
               ? _c(
                   "label",
                   {
-                    staticClass: "col-3 col-form-label",
+                    staticClass: "col-4 col-md-3 col-form-label",
                     attrs: { for: "_applied_on" }
                   },
                   [_vm._v("Applied on")]
@@ -58688,7 +58704,7 @@ var render = function() {
               ? _c(
                   "label",
                   {
-                    staticClass: "col-3 col-form-label",
+                    staticClass: "col-4 col-md-3 col-form-label",
                     attrs: { for: "_contact_name" }
                   },
                   [_vm._v("Contact Name")]
@@ -58739,7 +58755,7 @@ var render = function() {
               ? _c(
                   "label",
                   {
-                    staticClass: "col-3 col-form-label",
+                    staticClass: "col-4 col-md-3 col-form-label",
                     attrs: { for: "_contact_email" }
                   },
                   [_vm._v("Contact email")]
@@ -59019,7 +59035,10 @@ var render = function() {
       _c("div", { staticClass: "formt-group row" }, [
         _c(
           "label",
-          { staticClass: "col-3 col-form-label", attrs: { for: "title" } },
+          {
+            staticClass: "col-4 col-md-1 col-form-label",
+            attrs: { for: "title" }
+          },
           [_vm._v("Title")]
         ),
         _vm._v(" "),
@@ -59032,7 +59051,7 @@ var render = function() {
               expression: "title"
             }
           ],
-          staticClass: "form-control col-6",
+          staticClass: "form-control col-7 col-md-4",
           attrs: { type: "text", id: "title", name: "title" },
           domProps: { value: _vm.title },
           on: {
@@ -59057,7 +59076,7 @@ var render = function() {
         _c(
           "label",
           {
-            staticClass: "col-3 col-form-label",
+            staticClass: "col-4 col-md-1 col-form-label",
             attrs: { for: "company_name" }
           },
           [_vm._v("Company Name")]
@@ -59072,7 +59091,7 @@ var render = function() {
               expression: "company_name"
             }
           ],
-          staticClass: "form-control col-6",
+          staticClass: "form-control col-7 col-md-4",
           attrs: { type: "text", id: "company_name", name: "company_name" },
           domProps: { value: _vm.company_name },
           on: {
@@ -59096,7 +59115,10 @@ var render = function() {
       _c("div", { staticClass: "formt-group row" }, [
         _c(
           "label",
-          { staticClass: "col-3 col-form-label", attrs: { for: "location" } },
+          {
+            staticClass: "col-4 col-md-13 col-form-label",
+            attrs: { for: "location" }
+          },
           [_vm._v("Location")]
         ),
         _vm._v(" "),
@@ -59109,7 +59131,7 @@ var render = function() {
               expression: "location"
             }
           ],
-          staticClass: "form-control col-6",
+          staticClass: "form-control col-7 col-md-4",
           attrs: { type: "text", id: "location", name: "location" },
           domProps: { value: _vm.location },
           on: {
@@ -59133,7 +59155,10 @@ var render = function() {
       _c("div", { staticClass: "formt-group row" }, [
         _c(
           "label",
-          { staticClass: "col-3 col-form-label", attrs: { for: "link" } },
+          {
+            staticClass: "col-4 col-md-1 col-form-label",
+            attrs: { for: "link" }
+          },
           [_vm._v("Link")]
         ),
         _vm._v(" "),
@@ -59146,7 +59171,7 @@ var render = function() {
               expression: "link"
             }
           ],
-          staticClass: "form-control col-6",
+          staticClass: "form-control col-7 col-md-4",
           attrs: { type: "url", id: "link", name: "link" },
           domProps: { value: _vm.link },
           on: {
@@ -59315,7 +59340,7 @@ var render = function() {
         _c(
           "label",
           {
-            staticClass: "col-1 col-form-label",
+            staticClass: "col-3 col-md-1 col-form-label",
             attrs: { for: "rsskeywords" }
           },
           [_vm._v("Keywords")]
@@ -59330,7 +59355,7 @@ var render = function() {
               expression: "keywords"
             }
           ],
-          staticClass: "form-control col-4",
+          staticClass: "form-control col-7 col-md-4",
           attrs: { type: "text", id: "rsskeywords", name: "keywords" },
           domProps: { value: _vm.keywords },
           on: {

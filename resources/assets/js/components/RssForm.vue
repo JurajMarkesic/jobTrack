@@ -1,8 +1,8 @@
 <template>
     <form action="" method="POST" class="form mt-5">
         <div class="form-group row">
-            <label for="rsskeywords" class="col-1 col-form-label">Keywords</label>
-            <input type="text" class="form-control col-4" id="rsskeywords" name="keywords" v-model="keywords" @keyup="clearErrors">
+            <label for="rsskeywords" class="col-3 col-md-1 col-form-label">Keywords</label>
+            <input type="text" class="form-control col-7 col-md-4" id="rsskeywords" name="keywords" v-model="keywords" @keyup="clearErrors">
         </div>
         <span v-text="errors.keywords"  class="form-text text-danger"></span>
 

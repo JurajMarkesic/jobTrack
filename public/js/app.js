@@ -57954,19 +57954,21 @@ var render = function() {
   return _c("tr", { staticClass: "row" }, [
     _c("td", { staticClass: "col-3" }, [_vm._v(_vm._s(_vm.listing.title))]),
     _vm._v(" "),
-    _c("td", { staticClass: "col-2" }, [_vm._v(_vm._s(_vm.listing.location))]),
+    _c("td", { staticClass: "col-3 col-md-2" }, [
+      _vm._v(_vm._s(_vm.listing.location))
+    ]),
     _vm._v(" "),
     _c("td", { staticClass: "col-3" }, [_vm._v(_vm._s(_vm.listing.company))]),
     _vm._v(" "),
-    _c("td", { staticClass: "col-1" }, [
+    _c("td", { staticClass: "col-2" }, [
       _c("a", { attrs: { href: _vm.listing.link } }, [_vm._v("Link")])
     ]),
     _vm._v(" "),
-    _c("td", { staticClass: "col-1" }, [
+    _c("td", {}, [
       _c("button", { on: { click: _vm.saveListing } }, [_vm._v("Save")])
     ]),
     _vm._v(" "),
-    _c("td", { staticClass: "col-1 offset-1" }, [
+    _c("td", {}, [
       _vm.isAdded
         ? _c("i", {
             staticClass: "fa fa-check fa-lg",

@@ -1,15 +1,15 @@
 <template>
     <tr class="row">
         <td class="col-3">{{ listing.title }}</td>
-        <td class="col-2">{{ listing.location }}</td>
+        <td class="col-3 col-md-2">{{ listing.location }}</td>
         <td class="col-3">{{ listing.company }}</td>
-        <td class="col-1">
+        <td class="col-2">
             <a :href="listing.link">Link</a>
         </td>
-        <td class="col-1">
+        <td class="">
             <button @click="saveListing">Save</button>
         </td>
-        <td class="col-1 offset-1">
+        <td class="">
             <i v-if="isAdded" class="fa fa-check fa-lg" style="color: green;"></i>
             <i v-else class="fa fa-arrow-left" style="color: white;"></i></td>
     </tr>

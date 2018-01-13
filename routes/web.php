@@ -11,20 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'PageController@landing');
 
 Auth::routes();
 
 
-Route::get('/home', 'PageController@home')->name('home');
+Route::get('/home', 'PageController@home')->name('home')->middleware('auth');
 
-Route::get('/jooble', 'PageController@jooble')->name('jooble');
+Route::get('/dashboard', 'PageController@dashboard')->name('dashboard')->middleware('auth');
 
-Route::get('/rss', 'PageController@rss')->name('rss');
+Route::get('/jooble', 'PageController@jooble')->name('jooble')->middleware('auth');
 
-Route::post('/listings/check', 'ListingController@check');
+Route::get('/rss', 'PageController@rss')->name('rss')->middleware('auth');
+
+Route::post('/listings/check', 'ListingController@check')->middleware('auth');
 
 
 Route::post('/joobleAPI', 'JoobleApiController@getListings')->middleware('auth');

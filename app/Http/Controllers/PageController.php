@@ -3,27 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class PageController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function landing()
     {
-        $this->middleware('auth');
+        if(Auth::check()) {
+            return redirect('/home');
+        }
+
+        return view('welcome');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function home()
     {
         return view('home');
+    }
+
+    public function dashboard()
+    {
+        return view('dashboard');
     }
 
     public function jooble()

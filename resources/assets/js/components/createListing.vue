@@ -1,23 +1,23 @@
 <template>
     <form action="" method="POST" class="form">
         <div class="formt-group row">
-            <label for="title" class="col-4 col-md-1 col-form-label">Title</label>
-            <input type="text"  class="form-control col-7 col-md-4" id="title" name="title" v-model="title"  @keyup="clearErrors"><br>
+            <label for="title" class="col-4 col-md-3 col-form-label">Title</label>
+            <input type="text"  class="form-control col-7 col-md-5" id="title" name="title" v-model="title"  @keyup="clearErrors"><br>
         </div>
         <span v-text="errors.title"  class="form-text text-danger"></span>
         <div class="formt-group row">
-            <label for="company_name" class="col-4 col-md-1 col-form-label">Company Name</label>
-            <input type="text" class="form-control col-7 col-md-4" id="company_name" name="company_name" v-model="company_name"  @keyup="clearErrors"><br>
+            <label for="company_name" class="col-4 col-md-3 col-form-label">Company Name</label>
+            <input type="text" class="form-control col-7 col-md-5" id="company_name" name="company_name" v-model="company_name"  @keyup="clearErrors"><br>
         </div>
         <span v-text="errors.company_name"  class="form-text text-danger"></span>
         <div class="formt-group row">
-            <label for="location" class="col-4 col-md-13 col-form-label">Location</label>
-            <input type="text" class="form-control col-7 col-md-4" id="location" name="location" v-model="location"  @keyup="clearErrors"><br>
+            <label for="location" class="col-4 col-md-3 col-form-label">Location</label>
+            <input type="text" class="form-control col-7 col-md-5" id="location" name="location" v-model="location"  @keyup="clearErrors"><br>
         </div>
         <span v-text="errors.location"  class="form-text text-danger"></span>
         <div class="formt-group row">
-            <label for="link" class="col-4 col-md-1 col-form-label">Link</label>
-            <input type="url" class="form-control col-7 col-md-4" id="link" name="link" v-model="link"  @keyup="clearErrors"><br>
+            <label for="link" class="col-4 col-md-3 col-form-label">Link</label>
+            <input type="url" class="form-control col-7 col-md-5" id="link" name="link" v-model="link"  @keyup="clearErrors"><br>
         </div>
         <span v-text="errors.link"  class="form-text text-danger"></span>
 

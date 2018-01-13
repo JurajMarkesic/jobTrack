@@ -59049,7 +59049,7 @@ var render = function() {
         _c(
           "label",
           {
-            staticClass: "col-4 col-md-1 col-form-label",
+            staticClass: "col-4 col-md-3 col-form-label",
             attrs: { for: "title" }
           },
           [_vm._v("Title")]
@@ -59064,7 +59064,7 @@ var render = function() {
               expression: "title"
             }
           ],
-          staticClass: "form-control col-7 col-md-4",
+          staticClass: "form-control col-7 col-md-5",
           attrs: { type: "text", id: "title", name: "title" },
           domProps: { value: _vm.title },
           on: {
@@ -59089,7 +59089,7 @@ var render = function() {
         _c(
           "label",
           {
-            staticClass: "col-4 col-md-1 col-form-label",
+            staticClass: "col-4 col-md-3 col-form-label",
             attrs: { for: "company_name" }
           },
           [_vm._v("Company Name")]
@@ -59104,7 +59104,7 @@ var render = function() {
               expression: "company_name"
             }
           ],
-          staticClass: "form-control col-7 col-md-4",
+          staticClass: "form-control col-7 col-md-5",
           attrs: { type: "text", id: "company_name", name: "company_name" },
           domProps: { value: _vm.company_name },
           on: {
@@ -59129,7 +59129,7 @@ var render = function() {
         _c(
           "label",
           {
-            staticClass: "col-4 col-md-13 col-form-label",
+            staticClass: "col-4 col-md-3 col-form-label",
             attrs: { for: "location" }
           },
           [_vm._v("Location")]
@@ -59144,7 +59144,7 @@ var render = function() {
               expression: "location"
             }
           ],
-          staticClass: "form-control col-7 col-md-4",
+          staticClass: "form-control col-7 col-md-5",
           attrs: { type: "text", id: "location", name: "location" },
           domProps: { value: _vm.location },
           on: {
@@ -59169,7 +59169,7 @@ var render = function() {
         _c(
           "label",
           {
-            staticClass: "col-4 col-md-1 col-form-label",
+            staticClass: "col-4 col-md-3 col-form-label",
             attrs: { for: "link" }
           },
           [_vm._v("Link")]
@@ -59184,7 +59184,7 @@ var render = function() {
               expression: "link"
             }
           ],
-          staticClass: "form-control col-7 col-md-4",
+          staticClass: "form-control col-7 col-md-5",
           attrs: { type: "url", id: "link", name: "link" },
           domProps: { value: _vm.link },
           on: {

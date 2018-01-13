@@ -57961,7 +57961,9 @@ var render = function() {
     _c("td", { staticClass: "col-3" }, [_vm._v(_vm._s(_vm.listing.company))]),
     _vm._v(" "),
     _c("td", { staticClass: "col-2" }, [
-      _c("a", { attrs: { href: _vm.listing.link } }, [_vm._v("Link")])
+      _c("a", { attrs: { href: _vm.listing.link, target: "_blank" } }, [
+        _vm._v("Link")
+      ])
     ]),
     _vm._v(" "),
     _c("td", {}, [

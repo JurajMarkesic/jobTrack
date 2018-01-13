@@ -4,7 +4,7 @@
         <td class="col-3 col-md-2">{{ listing.location }}</td>
         <td class="col-3">{{ listing.company }}</td>
         <td class="col-2">
-            <a :href="listing.link">Link</a>
+            <a :href="listing.link" target="_blank">Link</a>
         </td>
         <td class="">
             <button @click="saveListing">Save</button>

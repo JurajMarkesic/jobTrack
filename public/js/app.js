@@ -58366,7 +58366,7 @@ var render = function() {
                   expression: "listing.title"
                 }
               ],
-              staticClass: "form-control col-6",
+              staticClass: "form-control col-8 col-md-6",
               attrs: { id: "_title", type: "text" },
               domProps: { value: _vm.listing.title },
               on: {
@@ -58411,7 +58411,7 @@ var render = function() {
                   expression: "listing.company_name"
                 }
               ],
-              staticClass: "form-control col-6",
+              staticClass: "form-control col-8 col-md-6",
               attrs: { id: "_company_name", type: "text" },
               domProps: { value: _vm.listing.company_name },
               on: {
@@ -58456,7 +58456,7 @@ var render = function() {
                   expression: "listing.location"
                 }
               ],
-              staticClass: "form-control col-6",
+              staticClass: "form-control col-8 col-md-6",
               attrs: { id: "_location", type: "text" },
               domProps: { value: _vm.listing.location },
               on: {
@@ -58501,7 +58501,7 @@ var render = function() {
                   expression: "listing.link"
                 }
               ],
-              staticClass: "form-control col-6",
+              staticClass: "form-control col-8 col-md-6",
               attrs: { id: "_link", type: "text" },
               domProps: { value: _vm.listing.link },
               on: {
@@ -58554,7 +58554,7 @@ var render = function() {
                       expression: "listing.rating"
                     }
                   ],
-                  staticClass: "form-control  col-1",
+                  staticClass: "form-control  col-2 col-md-1",
                   attrs: { id: "_rating", type: "number", min: "1", max: "10" },
                   domProps: { value: _vm.listing.rating },
                   on: {
@@ -58602,7 +58602,7 @@ var render = function() {
                         expression: "listing.status"
                       }
                     ],
-                    staticClass: "form-control col-6",
+                    staticClass: "form-control col-8 col-md-6",
                     attrs: { id: "_status" },
                     on: {
                       change: function($event) {
@@ -58681,7 +58681,7 @@ var render = function() {
                       expression: "listing.contact.applied_on"
                     }
                   ],
-                  staticClass: "form-control col-6",
+                  staticClass: "form-control col-8 col-md-6",
                   attrs: { id: "_applied_on", type: "date" },
                   domProps: { value: _vm.listing.contact.applied_on },
                   on: {
@@ -58732,7 +58732,7 @@ var render = function() {
                       expression: "listing.contact.contact_name"
                     }
                   ],
-                  staticClass: "form-control col-6",
+                  staticClass: "form-control col-8 col-md-6",
                   attrs: { id: "_contact_name", type: "text" },
                   domProps: { value: _vm.listing.contact.contact_name },
                   on: {
@@ -58783,7 +58783,7 @@ var render = function() {
                       expression: "listing.contact.contact_email"
                     }
                   ],
-                  staticClass: "form-control col-6",
+                  staticClass: "form-control col-8 col-md-6",
                   attrs: {
                     id: "_contact_email",
                     type: "email",

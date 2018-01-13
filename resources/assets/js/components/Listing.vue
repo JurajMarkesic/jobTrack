@@ -2,36 +2,36 @@
     <form action="" method="POST" class="form">
         <div class="form-group row">
             <label for="_title" class="col-4 col-md-3 col-form-label">Title</label>
-            <input v-if="edit" class="form-control col-6" id="_title" type="text" v-model="listing.title" @keyup="clearErrors">
+            <input v-if="edit" class="form-control col-8 col-md-6" id="_title" type="text" v-model="listing.title" @keyup="clearErrors">
             <span v-else class="col-8 col-md-4">{{ listing.title }}</span>
         </div>
         <span v-if="edit" v-text="errors.title" class="form-text text-danger"></span>
          <div class="form-group row">
              <label for="_company_name" class="col-4 col-md-3 col-form-label">Company Name</label>
-             <input v-if="edit" class="form-control col-6" id="_company_name" type="text" v-model="listing.company_name" @keyup="clearErrors">
+             <input v-if="edit" class="form-control col-8 col-md-6" id="_company_name" type="text" v-model="listing.company_name" @keyup="clearErrors">
              <span v-else class="col-8 col-md-4">{{ listing.company_name }}</span>
          </div>
         <span v-if="edit" v-text="errors.company_name" class="form-text text-danger"></span>
          <div class="form-group row">
              <label for="_location" class="col-4 col-md-3 col-form-label">Location</label>
-             <input v-if="edit" class="form-control col-6" id="_location" type="text" v-model="listing.location" @keyup="clearErrors">
+             <input v-if="edit" class="form-control col-8 col-md-6" id="_location" type="text" v-model="listing.location" @keyup="clearErrors">
              <span v-else class="col-8 col-md-4">{{ listing.location }}</span>
          </div>
         <span v-if="edit" v-text="errors.location" class="form-text text-danger"></span>
          <div class="form-group row">
              <label for="_link" class="col-4 col-md-3 col-form-label">Link</label>
-             <input v-if="edit" class="form-control col-6" id="_link" type="text" v-model="listing.link" @keyup="clearErrors">
+             <input v-if="edit" class="form-control col-8 col-md-6" id="_link" type="text" v-model="listing.link" @keyup="clearErrors">
              <a target="_blank" v-else :href="listing.link" class="col-8 col-md-4">Link</a>
          </div>
         <span v-if="edit" v-text="errors.link" class="form-text text-danger"></span>
         <div class="form-group row" v-if="edit">
             <label v-if="edit" for="_rating" class="col-4 col-md-3 col-form-label">Rating</label>
-            <input v-if="edit" class="form-control  col-1" id="_rating" type="number" min="1" max="10" v-model="listing.rating">
+            <input v-if="edit" class="form-control  col-2 col-md-1" id="_rating" type="number" min="1" max="10" v-model="listing.rating">
         </div>
         <span v-if="edit" v-text="errors.rating" class="form-text text-danger"></span>
         <div class="form-group row" v-if="edit">
             <label v-if="edit" for="_status" class="col-4 col-md-3 col-form-label">Status</label>
-            <select v-if="edit" class="form-control col-6" id="_status" v-model="listing.status">
+            <select v-if="edit" class="form-control col-8 col-md-6" id="_status" v-model="listing.status">
                  <option value="Yet to apply">Yet to apply</option>
                  <option value="Applied">Applied</option>
                  <option value="Got a response">Got a response</option>
@@ -42,17 +42,17 @@
         <span v-if="edit" v-text="errors.status" class="form-text text-danger"></span>
          <div class="form-group row" v-if="edit">
              <label v-if="edit" for="_applied_on" class="col-4 col-md-3 col-form-label">Applied on</label>
-             <input v-if="edit" class="form-control col-6" id="_applied_on" type="date" v-model="listing.contact.applied_on"  @keyup="clearErrors">
+             <input v-if="edit" class="form-control col-8 col-md-6" id="_applied_on" type="date" v-model="listing.contact.applied_on"  @keyup="clearErrors">
          </div>
         <span v-if="edit" v-text="errors.applied_on" class="form-text text-danger"></span>
          <div class="form-group row" v-if="edit">
             <label v-if="edit" for="_contact_name" class="col-4 col-md-3 col-form-label">Contact Name</label>
-            <input v-if="edit" class="form-control col-6" id="_contact_name" type="text" v-model="listing.contact.contact_name"  @keyup="clearErrors">
+            <input v-if="edit" class="form-control col-8 col-md-6" id="_contact_name" type="text" v-model="listing.contact.contact_name"  @keyup="clearErrors">
          </div>
         <span v-if="edit" v-text="errors.contact_name" class="form-text text-danger"></span>
          <div class="form-group row" v-if="edit">
             <label v-if="edit" for="_contact_email" class="col-4 col-md-3 col-form-label">Contact email</label>
-            <input v-if="edit" class="form-control col-6" id="_contact_email" type="email"  placeholder="sophie@example.com"
+            <input v-if="edit" class="form-control col-8 col-md-6" id="_contact_email" type="email"  placeholder="sophie@example.com"
                    v-model="listing.contact.contact_email"  @keyup="clearErrors">
          </div>
         <span v-if="edit" v-text="errors.contact_email" class="form-text text-danger"></span>

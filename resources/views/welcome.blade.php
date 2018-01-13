@@ -21,10 +21,10 @@
             <a class="navbar-brand" href="{{ url('/') }}">
                 <span class="h1">{{ config('app.name', 'Laravel') }}</span>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
             <div class="collapse navbar-collapse justify-content-end mt-3" id="navbarSupportedContent">
                 <ul class="navbar-nav">
@@ -88,5 +88,6 @@
         </div>
     @endauth
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

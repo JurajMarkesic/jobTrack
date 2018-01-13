@@ -3,25 +3,25 @@
         <div class="form-group row">
             <label for="_title" class="col-4 col-md-3 col-form-label">Title</label>
             <input v-if="edit" class="form-control col-6" id="_title" type="text" v-model="listing.title" @keyup="clearErrors">
-            <span v-else>{{ listing.title }}</span>
+            <span v-else class="col-8 col-md-4">{{ listing.title }}</span>
         </div>
         <span v-if="edit" v-text="errors.title" class="form-text text-danger"></span>
          <div class="form-group row">
              <label for="_company_name" class="col-4 col-md-3 col-form-label">Company Name</label>
              <input v-if="edit" class="form-control col-6" id="_company_name" type="text" v-model="listing.company_name" @keyup="clearErrors">
-             <span v-else>{{ listing.company_name }}</span>
+             <span v-else class="col-8 col-md-4">{{ listing.company_name }}</span>
          </div>
         <span v-if="edit" v-text="errors.company_name" class="form-text text-danger"></span>
          <div class="form-group row">
              <label for="_location" class="col-4 col-md-3 col-form-label">Location</label>
              <input v-if="edit" class="form-control col-6" id="_location" type="text" v-model="listing.location" @keyup="clearErrors">
-             <span v-else>{{ listing.location }}</span>
+             <span v-else class="col-8 col-md-4">{{ listing.location }}</span>
          </div>
         <span v-if="edit" v-text="errors.location" class="form-text text-danger"></span>
          <div class="form-group row">
              <label for="_link" class="col-4 col-md-3 col-form-label">Link</label>
              <input v-if="edit" class="form-control col-6" id="_link" type="text" v-model="listing.link" @keyup="clearErrors">
-             <a target="_blank" v-else :href="listing.link">Link</a>
+             <a target="_blank" v-else :href="listing.link" class="col-8 col-md-4">Link</a>
          </div>
         <span v-if="edit" v-text="errors.link" class="form-text text-danger"></span>
         <div class="form-group row" v-if="edit">

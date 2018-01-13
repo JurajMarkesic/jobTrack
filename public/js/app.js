@@ -58379,7 +58379,9 @@ var render = function() {
                 }
               }
             })
-          : _c("span", [_vm._v(_vm._s(_vm.listing.title))])
+          : _c("span", { staticClass: "col-8 col-md-4" }, [
+              _vm._v(_vm._s(_vm.listing.title))
+            ])
       ]),
       _vm._v(" "),
       _vm.edit
@@ -58422,7 +58424,9 @@ var render = function() {
                 }
               }
             })
-          : _c("span", [_vm._v(_vm._s(_vm.listing.company_name))])
+          : _c("span", { staticClass: "col-8 col-md-4" }, [
+              _vm._v(_vm._s(_vm.listing.company_name))
+            ])
       ]),
       _vm._v(" "),
       _vm.edit
@@ -58465,7 +58469,9 @@ var render = function() {
                 }
               }
             })
-          : _c("span", [_vm._v(_vm._s(_vm.listing.location))])
+          : _c("span", { staticClass: "col-8 col-md-4" }, [
+              _vm._v(_vm._s(_vm.listing.location))
+            ])
       ]),
       _vm._v(" "),
       _vm.edit
@@ -58508,9 +58514,14 @@ var render = function() {
                 }
               }
             })
-          : _c("a", { attrs: { target: "_blank", href: _vm.listing.link } }, [
-              _vm._v("Link")
-            ])
+          : _c(
+              "a",
+              {
+                staticClass: "col-8 col-md-4",
+                attrs: { target: "_blank", href: _vm.listing.link }
+              },
+              [_vm._v("Link")]
+            )
       ]),
       _vm._v(" "),
       _vm.edit

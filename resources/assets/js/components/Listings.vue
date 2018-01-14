@@ -6,7 +6,7 @@
             <option value="date">Date applied</option>
             <option value="rating">Rating</option>
         </select>
-        <hr>
+        hr
         <listing v-for="listing in listings" :listing="listing" :key="listing.id"></listing>
         <p v-if="!listings.length" class="text-warning">You have no listings saved!</p>
     </div>
@@ -39,12 +39,13 @@
                 })
             },
             sortListings() {
+                
                 if(this.sortMethod === "default") {
-                    this.listings = _.sortBy(this.listings, [function(o) { return o.title; }]);
+                    this.listings = _.orderBy(this.listings, [function(o) { return o.title; }]);
                 } else if(this.sortMethod === "date") {
-                    this.listings = _.sortBy(this.listings, [function(o) { return o.contact.applied_on; }]);
+                    this.listings = _.orderBy(this.listings, [function(o) { return o.contact.applied_on; }]);
                 } else {
-                    this.listings = _.sortBy(this.listings, [function(o) { return o.rating; }]);
+                    this.listings = _.orderBy(this.listings, [function(o) { return o.rating; }], ['desc']);
                 }
             }
         }

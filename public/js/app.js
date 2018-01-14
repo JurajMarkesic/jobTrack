@@ -58091,18 +58091,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         sortListings: function sortListings() {
+
             if (this.sortMethod === "default") {
-                this.listings = _.sortBy(this.listings, [function (o) {
+                this.listings = _.orderBy(this.listings, [function (o) {
                     return o.title;
                 }]);
             } else if (this.sortMethod === "date") {
-                this.listings = _.sortBy(this.listings, [function (o) {
+                this.listings = _.orderBy(this.listings, [function (o) {
                     return o.contact.applied_on;
                 }]);
             } else {
-                this.listings = _.sortBy(this.listings, [function (o) {
+                this.listings = _.orderBy(this.listings, [function (o) {
                     return o.rating;
-                }]);
+                }], ['desc']);
             }
         }
     }
@@ -58161,9 +58162,7 @@ var render = function() {
           _c("option", { attrs: { value: "rating" } }, [_vm._v("Rating")])
         ]
       ),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
+      _vm._v("\n    hr\n    "),
       _vm._l(_vm.listings, function(listing) {
         return _c("listing", { key: listing.id, attrs: { listing: listing } })
       }),

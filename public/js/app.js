@@ -58055,6 +58055,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -58062,7 +58069,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             listing: '',
-            listings: []
+            listings: [],
+            sortMethod: "default"
         };
     },
     created: function created() {
@@ -58081,6 +58089,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).catch(function (error) {
                 console.log(error);
             });
+        },
+        sortListings: function sortListings() {
+            if (this.sortMethod === "default") {
+                this.listings = _.sortBy(this.listings, [function (o) {
+                    return o.title;
+                }]);
+            } else if (this.sortMethod === "date") {
+                this.listings = _.sortBy(this.listings, [function (o) {
+                    return o.contact.applied_on;
+                }]);
+            } else {
+                this.listings = _.sortBy(this.listings, [function (o) {
+                    return o.rating;
+                }]);
+            }
         }
     }
 
@@ -58097,6 +58120,50 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("label", { attrs: { for: "sortMethod" } }, [_vm._v("Sort By")]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.sortMethod,
+              expression: "sortMethod"
+            }
+          ],
+          attrs: { name: "sortMethod", id: "sortMethod" },
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.sortMethod = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              _vm.sortListings
+            ]
+          }
+        },
+        [
+          _c("option", { attrs: { value: "default" } }, [_vm._v("Default")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "date" } }, [_vm._v("Date applied")]),
+          _vm._v(" "),
+          _c("option", { attrs: { value: "rating" } }, [_vm._v("Rating")])
+        ]
+      ),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _vm._l(_vm.listings, function(listing) {
         return _c("listing", { key: listing.id, attrs: { listing: listing } })
       }),

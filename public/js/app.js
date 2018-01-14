@@ -58162,7 +58162,9 @@ var render = function() {
           _c("option", { attrs: { value: "rating" } }, [_vm._v("Rating")])
         ]
       ),
-      _vm._v("\n    hr\n    "),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _vm._l(_vm.listings, function(listing) {
         return _c("listing", { key: listing.id, attrs: { listing: listing } })
       }),

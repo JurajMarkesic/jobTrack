@@ -6,7 +6,7 @@
             <option value="date">Date applied</option>
             <option value="rating">Rating</option>
         </select>
-        hr
+        <hr>
         <listing v-for="listing in listings" :listing="listing" :key="listing.id"></listing>
         <p v-if="!listings.length" class="text-warning">You have no listings saved!</p>
     </div>

@@ -58361,6 +58361,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -58502,15 +58507,15 @@ var render = function() {
                   }
                 }
               })
-            : _c("span", {}, [_vm._v(_vm._s(_vm.listing.title))])
+            : _c("span", {}, [_vm._v(_vm._s(_vm.listing.title))]),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("span", {
+                staticClass: "form-text text-danger",
+                domProps: { textContent: _vm._s(_vm.errors.title) }
+              })
+            : _vm._e()
         ]),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("span", {
-              staticClass: "form-text text-danger",
-              domProps: { textContent: _vm._s(_vm.errors.title) }
-            })
-          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-6" }, [
           _c(
@@ -58542,15 +58547,15 @@ var render = function() {
                   }
                 }
               })
-            : _c("span", {}, [_vm._v(_vm._s(_vm.listing.company_name))])
-        ]),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("span", {
-              staticClass: "form-text text-danger",
-              domProps: { textContent: _vm._s(_vm.errors.company_name) }
-            })
-          : _vm._e()
+            : _c("span", {}, [_vm._v(_vm._s(_vm.listing.company_name))]),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("span", {
+                staticClass: "form-text text-danger",
+                domProps: { textContent: _vm._s(_vm.errors.company_name) }
+              })
+            : _vm._e()
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
@@ -58584,15 +58589,15 @@ var render = function() {
                   }
                 }
               })
-            : _c("span", {}, [_vm._v(_vm._s(_vm.listing.location))])
+            : _c("span", {}, [_vm._v(_vm._s(_vm.listing.location))]),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("span", {
+                staticClass: "form-text text-danger",
+                domProps: { textContent: _vm._s(_vm.errors.location) }
+              })
+            : _vm._e()
         ]),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("span", {
-              staticClass: "form-text text-danger",
-              domProps: { textContent: _vm._s(_vm.errors.location) }
-            })
-          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-6" }, [
           _c(
@@ -58626,15 +58631,15 @@ var render = function() {
               })
             : _c("a", { attrs: { target: "_blank", href: _vm.listing.link } }, [
                 _vm._v("Link")
-              ])
-        ]),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("span", {
-              staticClass: "form-text text-danger",
-              domProps: { textContent: _vm._s(_vm.errors.link) }
-            })
-          : _vm._e()
+              ]),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("span", {
+                staticClass: "form-text text-danger",
+                domProps: { textContent: _vm._s(_vm.errors.link) }
+              })
+            : _vm._e()
+        ])
       ]),
       _vm._v(" "),
       _vm.statusHide
@@ -58701,13 +58706,15 @@ var render = function() {
                   }
                 }
               })
-            : _c("span", [_vm._v(_vm._s(_vm.listing.rating))])
+            : _c("span", [_vm._v(_vm._s(_vm.listing.rating))]),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("span", {
+                staticClass: "form-text text-danger",
+                domProps: { textContent: _vm._s(_vm.errors.rating) }
+              })
+            : _vm._e()
         ]),
-        _vm._v(" "),
-        _c("span", {
-          staticClass: "form-text text-danger",
-          domProps: { textContent: _vm._s(_vm.errors.rating) }
-        }),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-6 mb-0" }, [
           _c(
@@ -58772,15 +58779,15 @@ var render = function() {
                   ])
                 ]
               )
-            : _c("span", [_vm._v(_vm._s(_vm.listing.status))])
+            : _c("span", [_vm._v(_vm._s(_vm.listing.status))]),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("span", {
+                staticClass: "form-text text-danger",
+                domProps: { textContent: _vm._s(_vm.errors.status) }
+              })
+            : _vm._e()
         ]),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("span", {
-              staticClass: "form-text text-danger",
-              domProps: { textContent: _vm._s(_vm.errors.status) }
-            })
-          : _vm._e(),
         _vm._v(" "),
         _c("hr")
       ]),
@@ -58856,15 +58863,15 @@ var render = function() {
                   }
                 }
               })
-            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.applied_on))])
+            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.applied_on))]),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("span", {
+                staticClass: "form-text text-danger",
+                domProps: { textContent: _vm._s(_vm.errors.applied_on) }
+              })
+            : _vm._e()
         ]),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("span", {
-              staticClass: "form-text text-danger",
-              domProps: { textContent: _vm._s(_vm.errors.applied_on) }
-            })
-          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-4 mb-0" }, [
           _c(
@@ -58900,15 +58907,15 @@ var render = function() {
                   }
                 }
               })
-            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.contact_name))])
+            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.contact_name))]),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("span", {
+                staticClass: "form-text text-danger",
+                domProps: { textContent: _vm._s(_vm.errors.contact_name) }
+              })
+            : _vm._e()
         ]),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("span", {
-              staticClass: "form-text text-danger",
-              domProps: { textContent: _vm._s(_vm.errors.contact_name) }
-            })
-          : _vm._e(),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-4 mb-0" }, [
           _c(
@@ -58951,15 +58958,15 @@ var render = function() {
                   }
                 }
               })
-            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.contact_email))])
-        ]),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("span", {
-              staticClass: "form-text text-danger",
-              domProps: { textContent: _vm._s(_vm.errors.contact_email) }
-            })
-          : _vm._e()
+            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.contact_email))]),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("span", {
+                staticClass: "form-text text-danger",
+                domProps: { textContent: _vm._s(_vm.errors.contact_email) }
+              })
+            : _vm._e()
+        ])
       ]),
       _vm._v(" "),
       _c("br"),

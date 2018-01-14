@@ -47,7 +47,7 @@
                         <a href="/rss" class="nav-link" style="color: #cc2900; font-size: 1.3rem;">RSS</a>
                     </li>
                         <li class="nav-item">
-                            <span class="nav-link" style="color: #cc2900; font-size: 1.3rem;">/</span>
+                            <span class="nav-link hideOnSmall" style="color: #cc2900; font-size: 1.3rem;">/</span>
                         </li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"

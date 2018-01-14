@@ -1,7 +1,7 @@
 <template>
-    <table class="table table-striped mt-5">
+    <div class="mt-5">
         <templisting v-for="listing in sharedState.joobleListings" :listing="listing" :key="listing.id"></templisting>
-    </table>
+    </div>
 </template>
 
 <script>

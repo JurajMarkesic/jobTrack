@@ -1,7 +1,7 @@
 <template>
-    <table class="table table-striped mt-5">
+    <div class=" mt-5">
         <templisting v-for="listing in sharedState.rssListings" :listing="listing" :key="listing.title"></templisting>
-    </table>
+    </div>
 </template>
 
 <script>

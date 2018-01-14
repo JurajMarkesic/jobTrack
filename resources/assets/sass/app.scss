@@ -25,6 +25,15 @@ $secondary-blue: #076592;
   background-color: $secondary-blue;
 }
 
+hr {
+  background-color: #cc2900;
+}
+
+#tempListingWrap {
+  width: 70%;
+  margin-left: 10%;
+}
+
 @media (max-width: 768px) {
   .hideOnSmall {
     display: none;
@@ -32,4 +41,12 @@ $secondary-blue: #076592;
   #welcomeHeading {
     font-size: 4rem;
   }
+  #tempListingWrap {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+label {
+  font-weight: bold;
 }

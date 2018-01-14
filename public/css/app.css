@@ -12956,6 +12956,15 @@ a.text-dark:hover {
   background-color: #076592;
 }
 
+hr {
+  background-color: #cc2900;
+}
+
+#tempListingWrap {
+  width: 70%;
+  margin-left: 10%;
+}
+
 @media (max-width: 768px) {
   .hideOnSmall {
     display: none;
@@ -12964,5 +12973,14 @@ a.text-dark:hover {
   #welcomeHeading {
     font-size: 4rem;
   }
+
+  #tempListingWrap {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+label {
+  font-weight: bold;
 }
 

@@ -4,7 +4,7 @@
         <select name="sortMethod" id="sortMethod" v-model="sortMethod" @change="sortListings">
             <option value="default">Default</option>
             <option value="date">Date applied</option>
-            <option value="rating">Rating</option>
+            <option value="rating">Priority</option>
         </select>
         <hr>
         <listing v-for="listing in listings" :listing="listing" :key="listing.id"></listing>

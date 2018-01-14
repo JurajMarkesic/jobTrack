@@ -57812,8 +57812,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "table",
-    { staticClass: "table table-striped mt-5" },
+    "div",
+    { staticClass: "mt-5" },
     _vm._l(_vm.sharedState.joobleListings, function(listing) {
       return _c("templisting", { key: listing.id, attrs: { listing: listing } })
     })
@@ -57899,6 +57899,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -57952,36 +57958,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("tr", { staticClass: "row" }, [
-    _c("td", { staticClass: "col-3" }, [_vm._v(_vm._s(_vm.listing.title))]),
-    _vm._v(" "),
-    _c("td", { staticClass: "col-3 col-md-2" }, [
-      _vm._v(_vm._s(_vm.listing.location))
-    ]),
-    _vm._v(" "),
-    _c("td", { staticClass: "col-3" }, [_vm._v(_vm._s(_vm.listing.company))]),
-    _vm._v(" "),
-    _c("td", { staticClass: "col-2" }, [
-      _c("a", { attrs: { href: _vm.listing.link, target: "_blank" } }, [
-        _vm._v("Link")
+  return _c("div", { attrs: { id: "tempListingWrap" } }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        {
+          staticClass: "col-5 col-md-6",
+          staticStyle: { "font-weight": "bold" }
+        },
+        [_vm._v(_vm._s(_vm.listing.title))]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-5 col-md-4" }, [
+        _vm._v(_vm._s(_vm.listing.location))
       ])
     ]),
     _vm._v(" "),
-    _c("td", {}, [
-      _c("button", { on: { click: _vm.saveListing } }, [_vm._v("Save")])
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-5 col-md-6" }, [
+        _vm._v(_vm._s(_vm.listing.company))
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-3 col-md-4" }, [
+        _c("a", { attrs: { href: _vm.listing.link, target: "_blank" } }, [
+          _vm._v("Link")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-2 col-md-1" }, [
+        _c(
+          "button",
+          {
+            staticClass: " btn btn-outline-primary",
+            on: { click: _vm.saveListing }
+          },
+          [_vm._v("Save")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-2 col-md-1" }, [
+        _vm.isAdded
+          ? _c("i", {
+              staticClass: "fa fa-check fa-lg",
+              staticStyle: { color: "green", "margin-top": "0.6rem" }
+            })
+          : _c("i", {
+              staticClass: "fa fa-arrow-left",
+              staticStyle: { color: "white" }
+            })
+      ])
     ]),
     _vm._v(" "),
-    _c("td", {}, [
-      _vm.isAdded
-        ? _c("i", {
-            staticClass: "fa fa-check fa-lg",
-            staticStyle: { color: "green" }
-          })
-        : _c("i", {
-            staticClass: "fa fa-arrow-left",
-            staticStyle: { color: "white" }
-          })
-    ])
+    _c("hr")
   ])
 }
 var staticRenderFns = []
@@ -58159,7 +58187,7 @@ var render = function() {
           _vm._v(" "),
           _c("option", { attrs: { value: "date" } }, [_vm._v("Date applied")]),
           _vm._v(" "),
-          _c("option", { attrs: { value: "rating" } }, [_vm._v("Rating")])
+          _c("option", { attrs: { value: "rating" } }, [_vm._v("Priority")])
         ]
       ),
       _vm._v(" "),
@@ -58311,6 +58339,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -58328,7 +58378,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 applied_on: '',
                 contact_name: '',
                 contact_email: ''
-            }
+            },
+            contactHide: true,
+            statusHide: true
         };
     },
 
@@ -58419,476 +58471,500 @@ var render = function() {
     "form",
     { staticClass: "form", attrs: { action: "", method: "POST" } },
     [
-      _c("div", { staticClass: "form-group row" }, [
-        _c(
-          "label",
-          {
-            staticClass: "col-4 col-md-3 col-form-label",
-            attrs: { for: "_title" }
-          },
-          [_vm._v("Title")]
-        ),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.listing.title,
-                  expression: "listing.title"
-                }
-              ],
-              staticClass: "form-control col-8 col-md-6",
-              attrs: { id: "_title", type: "text" },
-              domProps: { value: _vm.listing.title },
-              on: {
-                keyup: _vm.clearErrors,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.listing, "title", $event.target.value)
-                }
-              }
-            })
-          : _c("span", { staticClass: "col-8 col-md-4" }, [
-              _vm._v(_vm._s(_vm.listing.title))
-            ])
-      ]),
-      _vm._v(" "),
-      _vm.edit
-        ? _c("span", {
-            staticClass: "form-text text-danger",
-            domProps: { textContent: _vm._s(_vm.errors.title) }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group row" }, [
-        _c(
-          "label",
-          {
-            staticClass: "col-4 col-md-3 col-form-label",
-            attrs: { for: "_company_name" }
-          },
-          [_vm._v("Company Name")]
-        ),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.listing.company_name,
-                  expression: "listing.company_name"
-                }
-              ],
-              staticClass: "form-control col-8 col-md-6",
-              attrs: { id: "_company_name", type: "text" },
-              domProps: { value: _vm.listing.company_name },
-              on: {
-                keyup: _vm.clearErrors,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.listing, "company_name", $event.target.value)
-                }
-              }
-            })
-          : _c("span", { staticClass: "col-8 col-md-4" }, [
-              _vm._v(_vm._s(_vm.listing.company_name))
-            ])
-      ]),
-      _vm._v(" "),
-      _vm.edit
-        ? _c("span", {
-            staticClass: "form-text text-danger",
-            domProps: { textContent: _vm._s(_vm.errors.company_name) }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group row" }, [
-        _c(
-          "label",
-          {
-            staticClass: "col-4 col-md-3 col-form-label",
-            attrs: { for: "_location" }
-          },
-          [_vm._v("Location")]
-        ),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.listing.location,
-                  expression: "listing.location"
-                }
-              ],
-              staticClass: "form-control col-8 col-md-6",
-              attrs: { id: "_location", type: "text" },
-              domProps: { value: _vm.listing.location },
-              on: {
-                keyup: _vm.clearErrors,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.listing, "location", $event.target.value)
-                }
-              }
-            })
-          : _c("span", { staticClass: "col-8 col-md-4" }, [
-              _vm._v(_vm._s(_vm.listing.location))
-            ])
-      ]),
-      _vm._v(" "),
-      _vm.edit
-        ? _c("span", {
-            staticClass: "form-text text-danger",
-            domProps: { textContent: _vm._s(_vm.errors.location) }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group row" }, [
-        _c(
-          "label",
-          {
-            staticClass: "col-4 col-md-3 col-form-label",
-            attrs: { for: "_link" }
-          },
-          [_vm._v("Link")]
-        ),
-        _vm._v(" "),
-        _vm.edit
-          ? _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.listing.link,
-                  expression: "listing.link"
-                }
-              ],
-              staticClass: "form-control col-8 col-md-6",
-              attrs: { id: "_link", type: "text" },
-              domProps: { value: _vm.listing.link },
-              on: {
-                keyup: _vm.clearErrors,
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.listing, "link", $event.target.value)
-                }
-              }
-            })
-          : _c(
-              "a",
-              {
-                staticClass: "col-8 col-md-4",
-                attrs: { target: "_blank", href: _vm.listing.link }
-              },
-              [_vm._v("Link")]
-            )
-      ]),
-      _vm._v(" "),
-      _vm.edit
-        ? _c("span", {
-            staticClass: "form-text text-danger",
-            domProps: { textContent: _vm._s(_vm.errors.link) }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.edit
-        ? _c("div", { staticClass: "form-group row" }, [
-            _vm.edit
-              ? _c(
-                  "label",
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "form-group col-6" }, [
+          _c(
+            "label",
+            { staticClass: "col-form-label", attrs: { for: "_title" } },
+            [_vm._v("Title:")]
+          ),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("input", {
+                directives: [
                   {
-                    staticClass: "col-4 col-md-3 col-form-label",
-                    attrs: { for: "_rating" }
-                  },
-                  [_vm._v("Rating")]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.edit
-              ? _c("input", {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.listing.title,
+                    expression: "listing.title"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { id: "_title", type: "text" },
+                domProps: { value: _vm.listing.title },
+                on: {
+                  keyup: _vm.clearErrors,
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.listing, "title", $event.target.value)
+                  }
+                }
+              })
+            : _c("span", {}, [_vm._v(_vm._s(_vm.listing.title))])
+        ]),
+        _vm._v(" "),
+        _vm.edit
+          ? _c("span", {
+              staticClass: "form-text text-danger",
+              domProps: { textContent: _vm._s(_vm.errors.title) }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-6" }, [
+          _c(
+            "label",
+            { staticClass: "col-form-label", attrs: { for: "_company_name" } },
+            [_vm._v("Company Name:")]
+          ),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.listing.company_name,
+                    expression: "listing.company_name"
+                  }
+                ],
+                staticClass: "form-control ",
+                attrs: { id: "_company_name", type: "text" },
+                domProps: { value: _vm.listing.company_name },
+                on: {
+                  keyup: _vm.clearErrors,
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.listing, "company_name", $event.target.value)
+                  }
+                }
+              })
+            : _c("span", {}, [_vm._v(_vm._s(_vm.listing.company_name))])
+        ]),
+        _vm._v(" "),
+        _vm.edit
+          ? _c("span", {
+              staticClass: "form-text text-danger",
+              domProps: { textContent: _vm._s(_vm.errors.company_name) }
+            })
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "form-group col-6" }, [
+          _c(
+            "label",
+            { staticClass: "col-form-label", attrs: { for: "_location" } },
+            [_vm._v("Location:")]
+          ),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.listing.location,
+                    expression: "listing.location"
+                  }
+                ],
+                staticClass: "form-control ",
+                attrs: { id: "_location", type: "text" },
+                domProps: { value: _vm.listing.location },
+                on: {
+                  keyup: _vm.clearErrors,
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.listing, "location", $event.target.value)
+                  }
+                }
+              })
+            : _c("span", {}, [_vm._v(_vm._s(_vm.listing.location))])
+        ]),
+        _vm._v(" "),
+        _vm.edit
+          ? _c("span", {
+              staticClass: "form-text text-danger",
+              domProps: { textContent: _vm._s(_vm.errors.location) }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-6" }, [
+          _c(
+            "label",
+            { staticClass: " col-form-label", attrs: { for: "_link" } },
+            [_vm._v("Link:")]
+          ),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.listing.link,
+                    expression: "listing.link"
+                  }
+                ],
+                staticClass: "form-control ",
+                attrs: { id: "_link", type: "text" },
+                domProps: { value: _vm.listing.link },
+                on: {
+                  keyup: _vm.clearErrors,
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.listing, "link", $event.target.value)
+                  }
+                }
+              })
+            : _c("a", { attrs: { target: "_blank", href: _vm.listing.link } }, [
+                _vm._v("Link")
+              ])
+        ]),
+        _vm._v(" "),
+        _vm.edit
+          ? _c("span", {
+              staticClass: "form-text text-danger",
+              domProps: { textContent: _vm._s(_vm.errors.link) }
+            })
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _vm.statusHide
+        ? _c("i", {
+            staticClass: " fa fa-angle-down fa-2x",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.statusHide = false
+              }
+            }
+          })
+        : _c("i", {
+            staticClass: "fa fa-angle-up fa-2x",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.statusHide = true
+              }
+            }
+          }),
+      _vm._v(" "),
+      _c(
+        "span",
+        {
+          staticStyle: { "font-size": "1.1rem" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              _vm.statusHide = false
+            }
+          }
+        },
+        [_vm._v("Status & Priority")]
+      ),
+      _vm._v(" "),
+      _c("div", { class: { row: true, "d-none": _vm.statusHide } }, [
+        _c("div", { staticClass: "form-group col-6 mb-0" }, [
+          _c(
+            "label",
+            { staticClass: " col-form-label", attrs: { for: "_rating" } },
+            [_vm._v("Priority:")]
+          ),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.listing.rating,
+                    expression: "listing.rating"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { id: "_rating", type: "number", min: "1", max: "10" },
+                domProps: { value: _vm.listing.rating },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.listing, "rating", $event.target.value)
+                  }
+                }
+              })
+            : _c("span", [_vm._v(_vm._s(_vm.listing.rating))])
+        ]),
+        _vm._v(" "),
+        _c("span", {
+          staticClass: "form-text text-danger",
+          domProps: { textContent: _vm._s(_vm.errors.rating) }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-6 mb-0" }, [
+          _c(
+            "label",
+            { staticClass: " col-form-label", attrs: { for: "_status" } },
+            [_vm._v("Status:")]
+          ),
+          _vm._v(" "),
+          _vm.edit
+            ? _c(
+                "select",
+                {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.listing.rating,
-                      expression: "listing.rating"
+                      value: _vm.listing.status,
+                      expression: "listing.status"
                     }
                   ],
-                  staticClass: "form-control  col-2 col-md-1",
-                  attrs: { id: "_rating", type: "number", min: "1", max: "10" },
-                  domProps: { value: _vm.listing.rating },
+                  staticClass: "form-control ",
+                  attrs: { id: "_status" },
                   on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.listing, "rating", $event.target.value)
-                    }
-                  }
-                })
-              : _vm._e()
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.edit
-        ? _c("span", {
-            staticClass: "form-text text-danger",
-            domProps: { textContent: _vm._s(_vm.errors.rating) }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.edit
-        ? _c("div", { staticClass: "form-group row" }, [
-            _vm.edit
-              ? _c(
-                  "label",
-                  {
-                    staticClass: "col-4 col-md-3 col-form-label",
-                    attrs: { for: "_status" }
-                  },
-                  [_vm._v("Status")]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.edit
-              ? _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.listing.status,
-                        expression: "listing.status"
-                      }
-                    ],
-                    staticClass: "form-control col-8 col-md-6",
-                    attrs: { id: "_status" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.listing,
-                          "status",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "Yet to apply" } }, [
-                      _vm._v("Yet to apply")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Applied" } }, [
-                      _vm._v("Applied")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Got a response" } }, [
-                      _vm._v("Got a response")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Got an interview" } }, [
-                      _vm._v("Got an interview")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Got the job!" } }, [
-                      _vm._v("Got the job!")
-                    ])
-                  ]
-                )
-              : _vm._e(),
-            _vm.edit ? _c("br") : _vm._e()
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.edit
-        ? _c("span", {
-            staticClass: "form-text text-danger",
-            domProps: { textContent: _vm._s(_vm.errors.status) }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.edit
-        ? _c("div", { staticClass: "form-group row" }, [
-            _vm.edit
-              ? _c(
-                  "label",
-                  {
-                    staticClass: "col-4 col-md-3 col-form-label",
-                    attrs: { for: "_applied_on" }
-                  },
-                  [_vm._v("Applied on")]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.edit
-              ? _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.listing.contact.applied_on,
-                      expression: "listing.contact.applied_on"
-                    }
-                  ],
-                  staticClass: "form-control col-8 col-md-6",
-                  attrs: { id: "_applied_on", type: "date" },
-                  domProps: { value: _vm.listing.contact.applied_on },
-                  on: {
-                    keyup: _vm.clearErrors,
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
                       _vm.$set(
-                        _vm.listing.contact,
-                        "applied_on",
-                        $event.target.value
+                        _vm.listing,
+                        "status",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
                       )
                     }
                   }
-                })
-              : _vm._e()
-          ])
-        : _vm._e(),
+                },
+                [
+                  _c("option", { attrs: { value: "Yet to apply" } }, [
+                    _vm._v("Yet to apply")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Applied" } }, [
+                    _vm._v("Applied")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Got a response" } }, [
+                    _vm._v("Got a response")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Got an interview" } }, [
+                    _vm._v("Got an interview")
+                  ]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "Got the job!" } }, [
+                    _vm._v("Got the job!")
+                  ])
+                ]
+              )
+            : _c("span", [_vm._v(_vm._s(_vm.listing.status))])
+        ]),
+        _vm._v(" "),
+        _vm.edit
+          ? _c("span", {
+              staticClass: "form-text text-danger",
+              domProps: { textContent: _vm._s(_vm.errors.status) }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _c("hr")
+      ]),
       _vm._v(" "),
-      _vm.edit
-        ? _c("span", {
-            staticClass: "form-text text-danger",
-            domProps: { textContent: _vm._s(_vm.errors.applied_on) }
+      _c("br"),
+      _vm._v(" "),
+      _vm.contactHide
+        ? _c("i", {
+            staticClass: " fa fa-angle-down fa-2x",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.contactHide = false
+              }
+            }
           })
-        : _vm._e(),
+        : _c("i", {
+            staticClass: " fa fa-angle-up fa-2x",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.contactHide = true
+              }
+            }
+          }),
       _vm._v(" "),
-      _vm.edit
-        ? _c("div", { staticClass: "form-group row" }, [
-            _vm.edit
-              ? _c(
-                  "label",
+      _c(
+        "span",
+        {
+          staticStyle: { "font-size": "1.1rem" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              _vm.contactHide = false
+            }
+          }
+        },
+        [_vm._v("Contact")]
+      ),
+      _vm._v(" "),
+      _c("div", { class: { row: true, "d-none": _vm.contactHide } }, [
+        _c("div", { staticClass: "form-group col-4 mb-0" }, [
+          _c(
+            "label",
+            { staticClass: " col-form-label", attrs: { for: "_applied_on" } },
+            [_vm._v("Applied on:")]
+          ),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("input", {
+                directives: [
                   {
-                    staticClass: "col-4 col-md-3 col-form-label",
-                    attrs: { for: "_contact_name" }
-                  },
-                  [_vm._v("Contact Name")]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.edit
-              ? _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.listing.contact.contact_name,
-                      expression: "listing.contact.contact_name"
-                    }
-                  ],
-                  staticClass: "form-control col-8 col-md-6",
-                  attrs: { id: "_contact_name", type: "text" },
-                  domProps: { value: _vm.listing.contact.contact_name },
-                  on: {
-                    keyup: _vm.clearErrors,
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.listing.contact,
-                        "contact_name",
-                        $event.target.value
-                      )
-                    }
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.listing.contact.applied_on,
+                    expression: "listing.contact.applied_on"
                   }
-                })
-              : _vm._e()
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.edit
-        ? _c("span", {
-            staticClass: "form-text text-danger",
-            domProps: { textContent: _vm._s(_vm.errors.contact_name) }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.edit
-        ? _c("div", { staticClass: "form-group row" }, [
-            _vm.edit
-              ? _c(
-                  "label",
+                ],
+                staticClass: "form-control ",
+                attrs: { id: "_applied_on", type: "date" },
+                domProps: { value: _vm.listing.contact.applied_on },
+                on: {
+                  keyup: _vm.clearErrors,
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.listing.contact,
+                      "applied_on",
+                      $event.target.value
+                    )
+                  }
+                }
+              })
+            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.applied_on))])
+        ]),
+        _vm._v(" "),
+        _vm.edit
+          ? _c("span", {
+              staticClass: "form-text text-danger",
+              domProps: { textContent: _vm._s(_vm.errors.applied_on) }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-4 mb-0" }, [
+          _c(
+            "label",
+            { staticClass: " col-form-label", attrs: { for: "_contact_name" } },
+            [_vm._v("Contact Name:")]
+          ),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("input", {
+                directives: [
                   {
-                    staticClass: "col-4 col-md-3 col-form-label",
-                    attrs: { for: "_contact_email" }
-                  },
-                  [_vm._v("Contact email")]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.edit
-              ? _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.listing.contact.contact_email,
-                      expression: "listing.contact.contact_email"
-                    }
-                  ],
-                  staticClass: "form-control col-8 col-md-6",
-                  attrs: {
-                    id: "_contact_email",
-                    type: "email",
-                    placeholder: "sophie@example.com"
-                  },
-                  domProps: { value: _vm.listing.contact.contact_email },
-                  on: {
-                    keyup: _vm.clearErrors,
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.listing.contact,
-                        "contact_email",
-                        $event.target.value
-                      )
-                    }
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.listing.contact.contact_name,
+                    expression: "listing.contact.contact_name"
                   }
-                })
-              : _vm._e()
-          ])
-        : _vm._e(),
+                ],
+                staticClass: "form-control ",
+                attrs: { id: "_contact_name", type: "text" },
+                domProps: { value: _vm.listing.contact.contact_name },
+                on: {
+                  keyup: _vm.clearErrors,
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.listing.contact,
+                      "contact_name",
+                      $event.target.value
+                    )
+                  }
+                }
+              })
+            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.contact_name))])
+        ]),
+        _vm._v(" "),
+        _vm.edit
+          ? _c("span", {
+              staticClass: "form-text text-danger",
+              domProps: { textContent: _vm._s(_vm.errors.contact_name) }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group col-4 mb-0" }, [
+          _c(
+            "label",
+            {
+              staticClass: " col-form-label",
+              attrs: { for: "_contact_email" }
+            },
+            [_vm._v("Contact email:")]
+          ),
+          _vm._v(" "),
+          _vm.edit
+            ? _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.listing.contact.contact_email,
+                    expression: "listing.contact.contact_email"
+                  }
+                ],
+                staticClass: "form-control ",
+                attrs: {
+                  id: "_contact_email",
+                  type: "email",
+                  placeholder: "sophie@example.com"
+                },
+                domProps: { value: _vm.listing.contact.contact_email },
+                on: {
+                  keyup: _vm.clearErrors,
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.listing.contact,
+                      "contact_email",
+                      $event.target.value
+                    )
+                  }
+                }
+              })
+            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.contact_email))])
+        ]),
+        _vm._v(" "),
+        _vm.edit
+          ? _c("span", {
+              staticClass: "form-text text-danger",
+              domProps: { textContent: _vm._s(_vm.errors.contact_email) }
+            })
+          : _vm._e()
+      ]),
       _vm._v(" "),
-      _vm.edit
-        ? _c("span", {
-            staticClass: "form-text text-danger",
-            domProps: { textContent: _vm._s(_vm.errors.contact_email) }
-          })
-        : _vm._e(),
+      _c("br"),
       _vm._v(" "),
-      _vm.edit ? _c("br") : _vm._e(),
+      _c("br"),
       _vm._v(" "),
       _vm.edit
         ? _c(
@@ -59569,8 +59645,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "table",
-    { staticClass: "table table-striped mt-5" },
+    "div",
+    { staticClass: " mt-5" },
     _vm._l(_vm.sharedState.rssListings, function(listing) {
       return _c("templisting", {
         key: listing.title,

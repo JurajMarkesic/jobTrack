@@ -6,7 +6,7 @@ body {
 
 h1 {
   font-size: 5rem;
-  margin-top: 10%;
+  display: inline-block;
 }
 
 h3 {
@@ -19,21 +19,36 @@ h3 {
 #registerButton {
   background-color: #cc2900;
   letter-spacing: 0.3px;
+  padding: 0.6rem 1.4rem;
+  border: 2px solid #cc2900;
 }
 
-#navLogin {
+#navLoginBtn {
   font-size: 1.2rem;
   font-family: Arial, sans-serif;
   background-color: #e62e00;
   color: white;
   letter-spacing: 0.3px;
-  padding-left: 1.4rem;
-  padding-right: 1.4rem;
+  padding: 0.6rem 1.4rem;
+}
+
+#registerButton:hover {
+  border: 2px solid #e62e00;
+}
+
+#titleWrap {
+  margin-left: -4%;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
-  h1 {
+  #titleWrap {
     margin-top: 26%;
+    margin-left: 0;
   }
 
   h3 {
@@ -42,7 +57,7 @@ h3 {
     font-size: 2rem;
   }
 
-  #navLogin {
+  #navLoginBtn {
     font-size: 1rem;
     padding-left: 0.8rem;
     padding-right: 0.8rem;

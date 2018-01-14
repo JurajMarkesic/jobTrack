@@ -43,18 +43,21 @@
     {{--<div class="container mt-5">--}}
 
 
-    <ul class="container-fluid">
+    <div class="container-fluid">
         <nav class="navbar">
             <p class="invisible">secret memes</p>
            <ul class="navbar-nav justify-content-end">
-               <a href="/login"><span class="btn  mt-3" id="navLogin">Login</span></a>
+              <li> <a href="/login"><span class="mt-3" id="navLoginBtn">Login</span></a></li>
            </ul>
         </nav>
-        <center>
-            <h1>laravel</h1>
+        <div style="text-align: center;">
+            <div style="margin-top: 10%;" id="titleWrap">
+                <img src="/images/mg1.png" alt="question mark" style="height: 7rem; margin-top: -5%;">
+                <h1>laravel</h1>
+            </div>
             <h3>Extensive job searching tool.</h3>
-            <button class="btn col-6 col-md-2" id="registerButton" style="font-size: 1.2rem;"><a href="/register" style="color: white;">Register to start</a></button>
-        </center>
+            <button class="col-7 col-md-4 col-lg-3 col-xl-2" id="registerButton" style="font-size: 1.2rem;"><a href="/register" style="color: white; text-underline: none;">Register to start</a></button>
+        </div>
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>

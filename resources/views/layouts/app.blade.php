@@ -13,11 +13,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style=" overflow-x: hidden;">
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-faded">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" href="{{ url('/') }}" style="color: #cc2900; font-size: 2rem;">
                 {{ config('app.name', 'Laravel') }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -28,26 +28,35 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     @if (Auth::guest())
-                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
-                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link" style="color: #cc2900; font-size: 1.3rem;">Login</a></li>
+                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link" style="color: #cc2900; font-size: 1.3rem;">Register</a></li>
                     @else
                         <li class="nav-item">
-                            <a href="/dashboard" class="nav-link">Dashboard</a>
+                            <a href="/dashboard" class="nav-link" style="color: #cc2900; font-size: 1.3rem;">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <span class="nav-link hideOnSmall" style="color: #cc2900; font-size: 1.3rem;">/</span>
                         </li>
                     <li class="nav-item">
-                        <a href="/jooble" class="nav-link">Jooble</a>
+                        <a href="/jooble" class="nav-link" style="color: #cc2900; font-size: 1.3rem;">Jooble</a>
                     </li>
+                        <li class="nav-item">
+                            <span class="nav-link hideOnSmall" style="color: #cc2900; font-size: 1.3rem;">/</span>
+                        </li>
                     <li class="nav-item">
-                        <a href="/rss" class="nav-link">RSS</a>
+                        <a href="/rss" class="nav-link" style="color: #cc2900; font-size: 1.3rem;">RSS</a>
                     </li>
+                        <li class="nav-item">
+                            <span class="nav-link hideOnSmall" style="color: #cc2900; font-size: 1.3rem;">/</span>
+                        </li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
+                               aria-haspopup="true" aria-expanded="false" style="color: #cc2900; font-size: 1.3rem;">
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a href="{{ route('logout') }}" class="dropdown-item"
-                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();" style="color: #cc2900;">
                                     Logout
                                 </a>
 

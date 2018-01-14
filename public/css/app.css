@@ -12944,3 +12944,21 @@ a.text-dark:hover {
   clip: auto;
 }
 
+.btn-danger {
+  background-color: #cc2900;
+}
+
+.btn-success {
+  background-color: #00A447;
+}
+
+.btn-primary {
+  background-color: #076592;
+}
+
+@media (max-width: 768px) {
+  .hideOnSmall {
+    display: none;
+  }
+}
+

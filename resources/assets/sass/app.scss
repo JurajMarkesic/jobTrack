@@ -10,4 +10,23 @@
 // Font Awesome
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
+$primary-red: #8b0000;
+$secondary-blue: #076592;
 
+.btn-danger {
+  background-color: #cc2900;
+}
+
+.btn-success {
+  background-color: #00A447;
+}
+
+.btn-primary {
+  background-color: $secondary-blue;
+}
+
+@media (max-width: 768px) {
+  .hideOnSmall {
+    display: none;
+  }
+}

@@ -11,10 +11,10 @@
 
         <div class="card-deck">
         <div class="card">
-        <h1 class="card-img-top mb-3" style="font-size: 4rem;"><span class="px-3 pb-2 border-top-0 border-left-0"
+        <h1 class="card-img-top mb-3" style="font-size: 4rem;"><span class="px-4 pb-2 border-top-0 border-left-0"
         style="border: solid black 1px;">1</span></h1>
         <div class="card-block">
-        <h4 class="card-title"><a href="/jooble">&nbsp Jooble</a></h4>
+        <h4 class="card-title"><a href="/jooble" style="font-weight: bold;">&nbsp Jooble</a></h4>
         <p class="card-text px-4 pb-3">
         Through accessing Jooble's API you are able to apply to thousands of jobs in any sector.
         This option also contains listings that offer relocation abroad.
@@ -22,19 +22,19 @@
         </div>
         </div>
         <div class="card">
-        <h1 class="card-img-top mb-3" style="font-size: 4rem;"><span class="px-3 pb-2 border-top-0 border-left-0"
+        <h1 class="card-img-top mb-3" style="font-size: 4rem;"><span class="px-4 pb-2 border-top-0 border-left-0"
         style="border: solid black 1px;">2</span></h1>
         <div class="card-block">
-        <h4 class="card-title"><a href="/rss">&nbsp Posao.hr</a></h4>
+        <h4 class="card-title"><a href="/rss" style="font-weight: bold;">&nbsp Posao.hr</a></h4>
         <p class="card-text px-4 pb-3">Posao.hr offers a RSS feed that gives you access to a constantly growing pool of local jobs.
         This is the biggest job site in Croatia.</p>
         </div>
         </div>
         <div class="card">
-        <h1 class="card-img-top mb-3" style="font-size: 4rem;"><span class="px-3 pb-2 border-top-0 border-left-0"
+        <h1 class="card-img-top mb-3" style="font-size: 4rem;"><span class="px-4 pb-2 border-top-0 border-left-0"
         style="border: solid black 1px;">3</span></h1>
         <div class="card-block">
-        <h4 class="card-title"><a href="/home">&nbsp Custom listings</a></h4>
+        <h4 class="card-title"><a href="/home" style="font-weight: bold;">&nbsp Custom listings</a></h4>
         <p class="card-text px-4 pb-3">
         Already know of an opening that isn't listed on these sites? You can add and track your own custom listing!
         </p>

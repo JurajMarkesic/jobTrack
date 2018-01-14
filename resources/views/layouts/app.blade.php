@@ -32,7 +32,7 @@
                         <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
                     @else
                         <li class="nav-item">
-                            <a href="/home" class="nav-link">Dashboard</a>
+                            <a href="/dashboard" class="nav-link">Dashboard</a>
                         </li>
                     <li class="nav-item">
                         <a href="/jooble" class="nav-link">Jooble</a>

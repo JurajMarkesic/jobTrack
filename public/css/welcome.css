@@ -26,10 +26,10 @@ h3 {
 #navLoginBtn {
   font-size: 1.2rem;
   font-family: Arial, sans-serif;
-  background-color: #e62e00;
+  background-color: #cc2900;
   color: white;
   letter-spacing: 0.3px;
-  padding: 0.3rem 1.7rem;
+  padding: 0.4rem 1.9rem;
 }
 
 #registerButton:hover {
@@ -59,10 +59,10 @@ a:hover {
 
   #navLoginBtn {
     font-size: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.15rem;
-    padding-bottom: 0.15rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
     margin-right: -22px;
   }
 }

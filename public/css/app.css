@@ -12960,5 +12960,9 @@ a.text-dark:hover {
   .hideOnSmall {
     display: none;
   }
+
+  #welcomeHeading {
+    font-size: 4rem;
+  }
 }
 

@@ -4,7 +4,7 @@
     <div class="container">
 
         <div class="jumbotron bg-danger text-white mb-5">
-        <h1 class="display-3 mr-3">Welcome to {{ config('app.name', 'Laravel') }}!</h1>
+        <h1 class="display-3" id="welcomeHeading">Welcome to {{ config('app.name', 'Laravel') }}!</h1>
         <p class="lead font-weight-bold">To manage your job search, you first need jobs to apply to. We offer 3 ways of adding job listings.</p>
         <p class="lead">You can track and edit your listings in your <a href="/home" class="text-white">Dashboard</a>.</p>
         </div>

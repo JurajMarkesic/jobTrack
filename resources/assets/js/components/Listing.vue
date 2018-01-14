@@ -1,14 +1,14 @@
 <template>
     <form action="" method="POST" class="form">
         <div class="row">
-            <div class="form-group col-6">
+            <div class="form-group col-12 col-sm-6">
                 <label for="_title" class="col-form-label">Title:</label>
                 <input v-if="edit" class="form-control" id="_title" type="text" v-model="listing.title" @keyup="clearErrors">
                 <span v-else class="">{{ listing.title }}</span>
                 <span v-if="edit" v-text="errors.title" class="form-text text-danger"></span>
             </div>
 
-             <div class="form-group col-6">
+             <div class="form-group col-12 col-sm-6">
                  <label for="_company_name" class="col-form-label">Company Name:</label>
                  <input v-if="edit" class="form-control " id="_company_name" type="text" v-model="listing.company_name" @keyup="clearErrors">
                  <span v-else class="">{{ listing.company_name }}</span>
@@ -16,13 +16,13 @@
              </div>
         </div>
         <div class="row">
-             <div class="form-group col-6">
+             <div class="form-group col-12 col-sm-6">
                  <label for="_location" class="col-form-label">Location:</label>
                  <input v-if="edit" class="form-control " id="_location" type="text" v-model="listing.location" @keyup="clearErrors">
                  <span v-else class="">{{ listing.location }}</span>
                  <span v-if="edit" v-text="errors.location" class="form-text text-danger"></span>
              </div>
-             <div class="form-group col-6">
+             <div class="form-group col-12 col-sm-6">
                  <label for="_link" class=" col-form-label">Link:</label>
                  <input v-if="edit" class="form-control " id="_link" type="text" v-model="listing.link" @keyup="clearErrors">
                  <a target="_blank" v-else :href="listing.link" class="">Link</a>
@@ -30,18 +30,20 @@
              </div>
         </div>
 
-        <i v-if="statusHide" class=" fa fa-angle-down fa-2x" @click.prevent="statusHide = false;"></i>
-        <i v-else class="fa fa-angle-up fa-2x" @click.prevent="statusHide = true;"></i>
-        <span @click.prevent="statusHide = false; "style="font-size: 1.1rem;">Status & Priority</span>
+        <div class="dropdownWrap">
+            <i v-if="statusHide" class=" fa fa-angle-down fa-2x" @click.prevent="statusHide = false;"></i>
+            <i v-else class="fa fa-angle-up fa-2x" @click.prevent="statusHide = true;"></i>
+            <span @click.prevent="statusHide = false;" style="font-size: 1.1rem;">Status & Priority</span>
+        </div>
 
         <div :class="{row: true, 'd-none': statusHide}">
-            <div class="form-group col-6 mb-0">
+            <div class="form-group col-12 col-sm-6 mb-0">
                 <label for="_rating" class=" col-form-label">Priority:</label>
                 <input v-if="edit" class="form-control" id="_rating" type="number" min="1" max="10" v-model="listing.rating">
                 <span v-else>{{listing.rating}}</span>
                 <span v-if="edit" v-text="errors.rating" class="form-text text-danger"></span>
             </div>
-            <div class="form-group col-6 mb-0">
+            <div class="form-group col-12 col-sm-6 mb-0">
                 <label  for="_status" class=" col-form-label">Status:</label>
                 <select v-if="edit" class="form-control " id="_status" v-model="listing.status">
                      <option value="Yet to apply">Yet to apply</option>
@@ -57,24 +59,25 @@
         </div>
         <br>
 
-        <i v-if="contactHide" class=" fa fa-angle-down fa-2x" @click.prevent="contactHide = false;"></i>
-        <i v-else class=" fa fa-angle-up fa-2x" @click.prevent="contactHide = true;"></i>
-        <span @click.prevent="contactHide = false;" style="font-size: 1.1rem;">Contact</span>
-
+        <div class="dropdownWrap">
+            <i v-if="contactHide" class=" fa fa-angle-down fa-2x" @click.prevent="contactHide = false;"></i>
+            <i v-else class=" fa fa-angle-up fa-2x" @click.prevent="contactHide = true;"></i>
+            <span @click.prevent="contactHide = false;" style="font-size: 1.1rem;">Contact</span>
+        </div>
         <div :class="{row: true, 'd-none': contactHide}">
-             <div class="form-group col-4 mb-0">
+             <div class="form-group col-12 col-sm-4 mb-0">
                  <label  for="_applied_on" class=" col-form-label">Applied on:</label>
                  <input v-if="edit" class="form-control " id="_applied_on" type="date" v-model="listing.contact.applied_on"  @keyup="clearErrors">
                  <span v-else>{{listing.contact.applied_on}}</span>
                  <span v-if="edit" v-text="errors.applied_on" class="form-text text-danger"></span>
              </div>
-             <div class="form-group col-4 mb-0">
+             <div class="form-group col-12 col-sm-4 mb-0">
                 <label  for="_contact_name" class=" col-form-label">Contact Name:</label>
                 <input v-if="edit" class="form-control " id="_contact_name" type="text" v-model="listing.contact.contact_name"  @keyup="clearErrors">
                  <span v-else>{{listing.contact.contact_name}}</span>
                  <span v-if="edit" v-text="errors.contact_name" class="form-text text-danger"></span>
              </div>
-             <div class="form-group col-4 mb-0">
+             <div class="form-group col-12 col-sm-4 mb-0">
                 <label for="_contact_email" class=" col-form-label">Contact email:</label>
                 <input v-if="edit" class="form-control " id="_contact_email" type="email"  placeholder="sophie@example.com"
                        v-model="listing.contact.contact_email"  @keyup="clearErrors">

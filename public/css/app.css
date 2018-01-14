@@ -12984,3 +12984,7 @@ label {
   font-weight: bold;
 }
 
+.dropdownWrap {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+

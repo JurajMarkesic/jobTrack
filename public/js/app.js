@@ -58366,6 +58366,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -58477,7 +58480,7 @@ var render = function() {
     { staticClass: "form", attrs: { action: "", method: "POST" } },
     [
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "form-group col-6" }, [
+        _c("div", { staticClass: "form-group col-12 col-sm-6" }, [
           _c(
             "label",
             { staticClass: "col-form-label", attrs: { for: "_title" } },
@@ -58517,7 +58520,7 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group col-6" }, [
+        _c("div", { staticClass: "form-group col-12 col-sm-6" }, [
           _c(
             "label",
             { staticClass: "col-form-label", attrs: { for: "_company_name" } },
@@ -58559,7 +58562,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "form-group col-6" }, [
+        _c("div", { staticClass: "form-group col-12 col-sm-6" }, [
           _c(
             "label",
             { staticClass: "col-form-label", attrs: { for: "_location" } },
@@ -58599,7 +58602,7 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group col-6" }, [
+        _c("div", { staticClass: "form-group col-12 col-sm-6" }, [
           _c(
             "label",
             { staticClass: " col-form-label", attrs: { for: "_link" } },
@@ -58642,42 +58645,44 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm.statusHide
-        ? _c("i", {
-            staticClass: " fa fa-angle-down fa-2x",
+      _c("div", { staticClass: "dropdownWrap" }, [
+        _vm.statusHide
+          ? _c("i", {
+              staticClass: " fa fa-angle-down fa-2x",
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  _vm.statusHide = false
+                }
+              }
+            })
+          : _c("i", {
+              staticClass: "fa fa-angle-up fa-2x",
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  _vm.statusHide = true
+                }
+              }
+            }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticStyle: { "font-size": "1.1rem" },
             on: {
               click: function($event) {
                 $event.preventDefault()
                 _vm.statusHide = false
               }
             }
-          })
-        : _c("i", {
-            staticClass: "fa fa-angle-up fa-2x",
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.statusHide = true
-              }
-            }
-          }),
-      _vm._v(" "),
-      _c(
-        "span",
-        {
-          staticStyle: { "font-size": "1.1rem" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              _vm.statusHide = false
-            }
-          }
-        },
-        [_vm._v("Status & Priority")]
-      ),
+          },
+          [_vm._v("Status & Priority")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { class: { row: true, "d-none": _vm.statusHide } }, [
-        _c("div", { staticClass: "form-group col-6 mb-0" }, [
+        _c("div", { staticClass: "form-group col-12 col-sm-6 mb-0" }, [
           _c(
             "label",
             { staticClass: " col-form-label", attrs: { for: "_rating" } },
@@ -58716,7 +58721,7 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group col-6 mb-0" }, [
+        _c("div", { staticClass: "form-group col-12 col-sm-6 mb-0" }, [
           _c(
             "label",
             { staticClass: " col-form-label", attrs: { for: "_status" } },
@@ -58794,42 +58799,44 @@ var render = function() {
       _vm._v(" "),
       _c("br"),
       _vm._v(" "),
-      _vm.contactHide
-        ? _c("i", {
-            staticClass: " fa fa-angle-down fa-2x",
+      _c("div", { staticClass: "dropdownWrap" }, [
+        _vm.contactHide
+          ? _c("i", {
+              staticClass: " fa fa-angle-down fa-2x",
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  _vm.contactHide = false
+                }
+              }
+            })
+          : _c("i", {
+              staticClass: " fa fa-angle-up fa-2x",
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  _vm.contactHide = true
+                }
+              }
+            }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticStyle: { "font-size": "1.1rem" },
             on: {
               click: function($event) {
                 $event.preventDefault()
                 _vm.contactHide = false
               }
             }
-          })
-        : _c("i", {
-            staticClass: " fa fa-angle-up fa-2x",
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.contactHide = true
-              }
-            }
-          }),
-      _vm._v(" "),
-      _c(
-        "span",
-        {
-          staticStyle: { "font-size": "1.1rem" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              _vm.contactHide = false
-            }
-          }
-        },
-        [_vm._v("Contact")]
-      ),
+          },
+          [_vm._v("Contact")]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { class: { row: true, "d-none": _vm.contactHide } }, [
-        _c("div", { staticClass: "form-group col-4 mb-0" }, [
+        _c("div", { staticClass: "form-group col-12 col-sm-4 mb-0" }, [
           _c(
             "label",
             { staticClass: " col-form-label", attrs: { for: "_applied_on" } },
@@ -58873,7 +58880,7 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group col-4 mb-0" }, [
+        _c("div", { staticClass: "form-group col-12 col-sm-4 mb-0" }, [
           _c(
             "label",
             { staticClass: " col-form-label", attrs: { for: "_contact_name" } },
@@ -58917,7 +58924,7 @@ var render = function() {
             : _vm._e()
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "form-group col-4 mb-0" }, [
+        _c("div", { staticClass: "form-group col-12 col-sm-4 mb-0" }, [
           _c(
             "label",
             {

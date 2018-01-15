@@ -23,7 +23,6 @@
                  <span v-if="edit" v-text="errors.location" class="form-text text-danger"></span>
              </div>
              <div class="form-group col-12 col-sm-6">
-                 <label for="_link" class=" col-form-label">Link:</label>
                  <input v-if="edit" class="form-control " id="_link" type="text" v-model="listing.link" @keyup="clearErrors">
                  <a target="_blank" v-else :href="listing.link" class="">Link</a>
                  <span v-if="edit" v-text="errors.link" class="form-text text-danger"></span>

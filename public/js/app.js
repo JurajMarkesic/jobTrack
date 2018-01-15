@@ -57559,6 +57559,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -57638,7 +57640,12 @@ var render = function() {
             }
           ],
           staticClass: "form-control col-7 col-md-4",
-          attrs: { type: "text", name: "keywords", id: "keywords" },
+          attrs: {
+            type: "text",
+            name: "keywords",
+            id: "keywords",
+            placeholder: "e.g. Junior Developer"
+          },
           domProps: { value: _vm.keywords },
           on: {
             keyup: _vm.clearErrors,
@@ -57677,7 +57684,12 @@ var render = function() {
             }
           ],
           staticClass: "form-control col-7 col-md-4",
-          attrs: { type: "text", name: "location", id: "location" },
+          attrs: {
+            type: "text",
+            name: "location",
+            id: "location",
+            placeholder: "e.g. Zagreb"
+          },
           domProps: { value: _vm.location },
           on: {
             keyup: _vm.clearErrors,
@@ -58368,7 +58380,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -58603,12 +58614,6 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-sm-6" }, [
-          _c(
-            "label",
-            { staticClass: " col-form-label", attrs: { for: "_link" } },
-            [_vm._v("Link:")]
-          ),
-          _vm._v(" "),
           _vm.edit
             ? _c("input", {
                 directives: [
@@ -59461,6 +59466,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -59530,7 +59536,12 @@ var render = function() {
             }
           ],
           staticClass: "form-control col-7 col-md-4",
-          attrs: { type: "text", id: "rsskeywords", name: "keywords" },
+          attrs: {
+            type: "text",
+            id: "rsskeywords",
+            name: "keywords",
+            placeholder: "e.g. Junior Developer"
+          },
           domProps: { value: _vm.keywords },
           on: {
             keyup: _vm.clearErrors,

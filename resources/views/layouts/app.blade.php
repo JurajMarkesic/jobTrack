@@ -25,7 +25,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" >
                 <ul class="navbar-nav">
                     @if (Auth::guest())
                         <li class="nav-item"><a href="{{ route('login') }}" class="nav-link" style="color: #cc2900; font-size: 1.3rem;">Login</a></li>
@@ -49,7 +49,7 @@
                         <li class="nav-item">
                             <span class="nav-link hideOnSmall" style="color: #cc2900; font-size: 1.3rem;">/</span>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown ">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false" style="color: #cc2900; font-size: 1.3rem;">
                                 {{ Auth::user()->name }}

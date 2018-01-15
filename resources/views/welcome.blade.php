@@ -26,7 +26,7 @@
         <div style="text-align: center;">
             <div style="margin-top: 10%;" id="titleWrap">
                 <img src="/images/mg1.png" alt="question mark" style="height: 7rem; margin-top: -5%;">
-                <h1>laravel</h1>
+                <h1>jobTrack</h1>
             </div>
             <h3>Extensive job searching tool.</h3>
             <button class="col-8 col-md-4 col-lg-3 col-xl-2" id="registerButton" style="font-size: 1.2rem;"><a href="/register" style="color: white; text-underline: none;">Register to start</a></button>

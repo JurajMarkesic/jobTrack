@@ -16,33 +16,6 @@
 </head>
 <body style=" overflow-x: hidden;">
 
-    {{--<nav class="navbar navbar-expand-lg navbar-light bg-faded">--}}
-        {{--<div class="container">--}}
-            {{--@if (Route::has('login'))--}}
-            {{--<a class="navbar-brand" href="{{ url('/') }}">--}}
-                {{--<span class="h1">{{ config('app.name', 'Laravel') }}</span>--}}
-            {{--</a>--}}
-                {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"--}}
-                        {{--aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
-                    {{--<span class="navbar-toggler-icon"></span>--}}
-                {{--</button>--}}
-
-            {{--<div class="collapse navbar-collapse justify-content-end mt-3" id="navbarSupportedContent">--}}
-                {{--<ul class="navbar-nav">--}}
-                    {{--@auth--}}
-                        {{--<li class="nav-item"><a href="{{ url('/home') }}" class="nav-link h4">Dashboard</a></li>--}}
-                    {{--@else--}}
-                        {{--<li class="nav-item"><a href="{{ route('login') }}" class="nav-link h4">Login</a></li>--}}
-                        {{--<li class="nav-item"><a href="{{ route('register') }}" class="nav-link h4">Register</a></li>--}}
-                    {{--@endauth--}}
-                {{--</ul>--}}
-            {{--</div>--}}
-            {{--@endif--}}
-        {{--</div>--}}
-    {{--</nav>--}}
-    {{--<div class="container mt-5">--}}
-
-
     <div class="container-fluid">
         <nav class="navbar">
             <p class="invisible">secret memes</p>

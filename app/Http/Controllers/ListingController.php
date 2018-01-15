@@ -7,6 +7,7 @@ use App\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Auth;
+use Mockery\Exception;
 
 class ListingController extends Controller
 {
@@ -40,16 +41,19 @@ class ListingController extends Controller
 //        //
 //    }
 
+    /**
+     * Checks if user has already stored this listing
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+
     public function check(Request $request)
     {
         $listingTitle = $request->input('listingTitle');
         $listingCompany = $request->input('listingCompany');
 
         $user = Auth::user();
-
-//        if(in_array($listing , $user->listings)) {
-//
-//        }
 
         $isSaved = false;
 
@@ -107,7 +111,7 @@ class ListingController extends Controller
         $contact->owner_id = $listing->id;
 
         if($request->has('applied_on')){
-            $contact->applied_on = $request->input('applied_on');
+            $contact->applied_on = $request->input('applied_on');     //contact info in not required for a listing to be saved
         }
         if($request->has('contact_name')){
             $contact->contact_name = $request->input('contact_name');
@@ -208,7 +212,13 @@ class ListingController extends Controller
      */
     public function destroy(Listing $listing)
     {
-        $listing->delete();
+        try {
+            $listing->delete();
+        } catch(\Exception $e) {
+            report($e);
+            return response("Listing does not exist", 404);
+        }
+
 
         return response("Listing destroyed", 200);
     }

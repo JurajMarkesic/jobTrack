@@ -8,6 +8,12 @@
 
 namespace App\HelperClasses;
 
+/**
+ * Helper class to store listings that were received from outside sources but not yet saved
+ *
+ * Class TempListing
+ * @package App\HelperClasses
+ */
 
 class TempListing
 {

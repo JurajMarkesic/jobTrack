@@ -19,7 +19,7 @@ class JoobleApiController extends Controller
         $keywords = $request->input('keywords');
         $location = $request->input('location');
 
-        $url = 'https://hr.jooble.org/api/' . config('app.jooble_key');
+        $url = 'https://hr.jooble.org/api/' . config('app.jooble_key');  //API access url
 
         $client = new Client(); //Guzzle Client
 

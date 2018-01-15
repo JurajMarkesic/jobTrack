@@ -36,10 +36,6 @@ class RSSfeedController extends Controller
             array_push($listings, $listing);
         }
 
-
-
-
-
         return response()->json([
             'listings' => $listings
         ]);

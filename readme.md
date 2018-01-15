@@ -1,4 +1,4 @@
-<h3>jobTrack is a job search management/tracking tool. It is currently configured for the Croatian job market. It offers access to jooble.hr API and posao.hr RSS feed. Listings from those sites can be saved, edited and tracked.</h3>
+<h3>jobTrack is a job search management/tracking tool. Currently configured for the Croatian job market. It offers access to jooble.hr API and posao.hr RSS feed. Listings from those sites can be saved, edited and tracked.</h3>
 
 <h4>Made using:</h4>
 -Laravel 5.5<br>

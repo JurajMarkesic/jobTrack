@@ -11,6 +11,10 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
 
+    <link rel="icon"
+          type="image/png"
+          href="favicon.ico">
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
 </head>
@@ -29,7 +33,9 @@
                 <h1>jobTrack</h1>
             </div>
             <h3>Extensive job searching tool.</h3>
-            <button class="col-8 col-md-4 col-lg-3 col-xl-2" id="registerButton" style="font-size: 1.2rem;"><a href="/register" style="color: white; text-underline: none;">Register to start</a></button>
+            <button class="col-8 col-md-4 col-lg-3 col-xl-2" id="registerButton" style="font-size: 1.2rem;">
+                <a href="/register" style="color: white; text-underline: none;">Register to start</a>
+            </button>
         </div>
     </div>
 

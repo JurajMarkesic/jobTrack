@@ -65,7 +65,7 @@
         methods: {
             fetchListings(page_url) {
                 if(typeof(page_url) === 'undefined') {
-                    page_url = 'http://jooble.oo/listings' + '?sort=' + this.sortMethod;
+                    page_url = '/listings' + '?sort=' + this.sortMethod;
                 }else {
                     page_url = page_url + '&sort=' + this.sortMethod;
                 }

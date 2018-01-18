@@ -58171,7 +58171,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             if (typeof page_url === 'undefined') {
-                page_url = 'http://jooble.oo/listings' + '?sort=' + this.sortMethod;
+                page_url = '/listings' + '?sort=' + this.sortMethod;
             } else {
                 page_url = page_url + '&sort=' + this.sortMethod;
             }

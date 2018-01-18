@@ -58105,6 +58105,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -58178,82 +58208,137 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("label", { attrs: { for: "sortMethod" } }, [_vm._v("Sort By")]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
+      _c("div", { staticClass: "row" }, [
+        _c("label", { staticClass: "mt-2", attrs: { for: "sortMethod" } }, [
+          _vm._v("Sort By")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.sortMethod,
+                expression: "sortMethod"
+              }
+            ],
+            staticClass: "form-control col-2 ml-2",
+            attrs: { name: "sortMethod", id: "sortMethod" },
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.sortMethod = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.sortListings
+              ]
+            }
+          },
+          [
+            _c("option", { attrs: { value: "default" } }, [_vm._v("Default")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "date" } }, [
+              _vm._v("Date applied")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "rating" } }, [_vm._v("Priority")])
+          ]
+        ),
+        _vm._v(" "),
+        _c("ul", { staticClass: "pagination col-5 offset-1 mt-1" }, [
+          _c(
+            "li",
             {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.sortMethod,
-              expression: "sortMethod"
-            }
-          ],
-          attrs: { name: "sortMethod", id: "sortMethod" },
-          on: {
-            change: [
-              function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.sortMethod = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              },
-              _vm.sortListings
+              class: {
+                "page-item": true,
+                disabled: !_vm.pagination.prev_page_url
+              }
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "page-link",
+                  attrs: {
+                    href: "#",
+                    "aria-label": "Previous",
+                    disabled: !_vm.pagination.prev_page_url
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.fetchListings(_vm.pagination.prev_page_url)
+                    }
+                  }
+                },
+                [
+                  _c("span", { attrs: { "aria-hidden": "true" } }, [
+                    _vm._v("Previous")
+                  ])
+                ]
+              )
             ]
-          }
-        },
-        [
-          _c("option", { attrs: { value: "default" } }, [_vm._v("Default")]),
+          ),
           _vm._v(" "),
-          _c("option", { attrs: { value: "date" } }, [_vm._v("Date applied")]),
+          _c("li", { staticClass: "page-item disabled" }, [
+            _c(
+              "span",
+              { staticClass: "page-link", staticStyle: { color: "black" } },
+              [
+                _vm._v(
+                  "Page " +
+                    _vm._s(_vm.pagination.current_page) +
+                    " of " +
+                    _vm._s(_vm.pagination.last_page)
+                )
+              ]
+            )
+          ]),
           _vm._v(" "),
-          _c("option", { attrs: { value: "rating" } }, [_vm._v("Priority")])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          attrs: { disabled: !_vm.pagination.prev_page_url },
-          on: {
-            click: function($event) {
-              _vm.fetchListings(_vm.pagination.prev_page_url)
-            }
-          }
-        },
-        [_vm._v("Previous")]
-      ),
-      _vm._v(" "),
-      _c("span", [
-        _vm._v(
-          "Page " +
-            _vm._s(_vm.pagination.current_page) +
-            " of " +
-            _vm._s(_vm.pagination.last_page)
-        )
+          _c(
+            "li",
+            {
+              class: {
+                "page-item": true,
+                disabled: !_vm.pagination.next_page_url
+              }
+            },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "page-link",
+                  attrs: {
+                    href: "#",
+                    "aria-label": "Next",
+                    disabled: !_vm.pagination.next_page_url
+                  },
+                  on: {
+                    click: function($event) {
+                      _vm.fetchListings(_vm.pagination.next_page_url)
+                    }
+                  }
+                },
+                [
+                  _c("span", { attrs: { "aria-hidden": "true" } }, [
+                    _vm._v("Next")
+                  ])
+                ]
+              )
+            ]
+          )
+        ])
       ]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          attrs: { disabled: !_vm.pagination.next_page_url },
-          on: {
-            click: function($event) {
-              _vm.fetchListings(_vm.pagination.next_page_url)
-            }
-          }
-        },
-        [_vm._v("Next")]
-      ),
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
@@ -58265,7 +58350,90 @@ var render = function() {
         ? _c("p", { staticClass: "text-warning" }, [
             _vm._v("You have no listings saved!")
           ])
-        : _vm._e()
+        : _vm._e(),
+      _vm._v(" "),
+      _c("ul", { staticClass: "pagination justify-content-center" }, [
+        _c(
+          "li",
+          {
+            class: {
+              "page-item": true,
+              disabled: !_vm.pagination.prev_page_url
+            }
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "page-link",
+                attrs: {
+                  href: "#",
+                  "aria-label": "Previous",
+                  disabled: !_vm.pagination.prev_page_url
+                },
+                on: {
+                  click: function($event) {
+                    _vm.fetchListings(_vm.pagination.prev_page_url)
+                  }
+                }
+              },
+              [
+                _c("span", { attrs: { "aria-hidden": "true" } }, [
+                  _vm._v("Previous")
+                ])
+              ]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("li", { staticClass: "page-item disabled" }, [
+          _c(
+            "span",
+            { staticClass: "page-link", staticStyle: { color: "black" } },
+            [
+              _vm._v(
+                "Page " +
+                  _vm._s(_vm.pagination.current_page) +
+                  " of " +
+                  _vm._s(_vm.pagination.last_page)
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "li",
+          {
+            class: {
+              "page-item": true,
+              disabled: !_vm.pagination.next_page_url
+            }
+          },
+          [
+            _c(
+              "a",
+              {
+                staticClass: "page-link",
+                attrs: {
+                  href: "#",
+                  "aria-label": "Next",
+                  disabled: !_vm.pagination.next_page_url
+                },
+                on: {
+                  click: function($event) {
+                    _vm.fetchListings(_vm.pagination.next_page_url)
+                  }
+                }
+              },
+              [
+                _c("span", { attrs: { "aria-hidden": "true" } }, [
+                  _vm._v("Next")
+                ])
+              ]
+            )
+          ]
+        )
+      ])
     ],
     2
   )

@@ -1,17 +1,47 @@
 <template>
     <div>
-        <label for="sortMethod">Sort By</label>
-        <select name="sortMethod" id="sortMethod" v-model="sortMethod" @change="sortListings">
-            <option value="default">Default</option>
-            <option value="date">Date applied</option>
-            <option value="rating">Priority</option>
-        </select>
-        <button @click="fetchListings(pagination.prev_page_url)" :disabled="!pagination.prev_page_url">Previous</button>
-        <span>Page {{pagination.current_page}} of {{pagination.last_page}}</span>
-        <button @click="fetchListings(pagination.next_page_url)" :disabled="!pagination.next_page_url">Next</button>
+        <div class="row">
+            <label for="sortMethod" class="mt-2">Sort By</label>
+            <select name="sortMethod" id="sortMethod" class="form-control col-2 ml-2" v-model="sortMethod" @change="sortListings">
+                <option value="default">Default</option>
+                <option value="date">Date applied</option>
+                <option value="rating">Priority</option>
+            </select>
+            <ul class="pagination col-5 offset-1 mt-1">
+                <li :class="{'page-item': true, 'disabled': !pagination.prev_page_url}">
+                    <a class="page-link" href="#" aria-label="Previous" @click="fetchListings(pagination.prev_page_url)" :disabled="!pagination.prev_page_url">
+                        <span aria-hidden="true">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item disabled">
+                    <span class="page-link" style="color: black">Page {{pagination.current_page}} of {{pagination.last_page}}</span>
+                </li>
+                <li :class="{'page-item': true, 'disabled': !pagination.next_page_url}">
+                    <a class="page-link" href="#" aria-label="Next" @click="fetchListings(pagination.next_page_url)" :disabled="!pagination.next_page_url">
+                        <span aria-hidden="true">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
         <hr>
         <listing v-for="listing in listings" :listing="listing" :key="listing.id"></listing>
         <p v-if="!listings.length" class="text-warning">You have no listings saved!</p>
+        <ul class="pagination justify-content-center">
+            <li :class="{'page-item': true, 'disabled': !pagination.prev_page_url}">
+                <a class="page-link" href="#" aria-label="Previous" @click="fetchListings(pagination.prev_page_url)" :disabled="!pagination.prev_page_url">
+                    <span aria-hidden="true">Previous</span>
+                </a>
+            </li>
+            <li class="page-item disabled">
+                <span class="page-link" style="color: black">Page {{pagination.current_page}} of {{pagination.last_page}}</span>
+            </li>
+            <li :class="{'page-item': true, 'disabled': !pagination.next_page_url}">
+                <a class="page-link" href="#" aria-label="Next" @click="fetchListings(pagination.next_page_url)" :disabled="!pagination.next_page_url">
+                    <span aria-hidden="true">Next</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </template>
 

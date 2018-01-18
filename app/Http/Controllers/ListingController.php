@@ -39,7 +39,7 @@ class ListingController extends Controller
                 ->paginate($perPage);                                                               //if sort method
         }                                                                                           // is default
 
-
+        $listings->setPath('');
 
         return response()->json([
             'listings' => $listings

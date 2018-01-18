@@ -36,10 +36,9 @@ class ListingController extends Controller
         }else {
             $listings = $user->listings()
                 ->join('contacts', 'listings.id', '=', 'contacts.owner_id')
-                ->paginate($perPage);                                                               //if sort method
+                ->paginate($perPage);                                                            //if sort method
         }                                                                                           // is default
-
-        $listings->setPath('');
+        
 
         return response()->json([
             'listings' => $listings

@@ -58102,6 +58102,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -58110,7 +58113,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             listing: '',
             listings: [],
-            sortMethod: "default"
+            sortMethod: "default",
+            pagination: {}
         };
     },
     created: function created() {
@@ -58120,14 +58124,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
-        fetchListings: function fetchListings() {
+        fetchListings: function fetchListings(page_url) {
             var _this = this;
 
-            axios.get('/listings').then(function (response) {
-                _this.listings = response.data.listings;
+            if (typeof page_url === 'undefined') {
+                page_url = 'http://jooble.oo/listings';
+            }
+            axios.get(page_url).then(function (response) {
+                console.log(response.data);
+                _this.listings = response.data.listings.data;
+                _this.makePagination(response.data.listings);
                 console.log("Listings fetched successfully!");
             }).catch(function (error) {
-                console.log(error);
+                console.log(error.data);
             });
         },
         sortListings: function sortListings() {
@@ -58145,6 +58154,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     return o.rating;
                 }], ['desc']);
             }
+        },
+        makePagination: function makePagination(data) {
+            this.pagination = {
+                current_page: data.current_page,
+                last_page: data.last_page,
+                next_page_url: data.next_page_url,
+                prev_page_url: data.prev_page_url
+            };
         }
     }
 
@@ -58201,6 +58218,41 @@ var render = function() {
           _vm._v(" "),
           _c("option", { attrs: { value: "rating" } }, [_vm._v("Priority")])
         ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          attrs: { disabled: !_vm.pagination.prev_page_url },
+          on: {
+            click: function($event) {
+              _vm.fetchListings(_vm.pagination.prev_page_url)
+            }
+          }
+        },
+        [_vm._v("Previous")]
+      ),
+      _vm._v(" "),
+      _c("span", [
+        _vm._v(
+          "Page " +
+            _vm._s(_vm.pagination.current_page) +
+            " of " +
+            _vm._s(_vm.pagination.last_page)
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          attrs: { disabled: !_vm.pagination.next_page_url },
+          on: {
+            click: function($event) {
+              _vm.fetchListings(_vm.pagination.next_page_url)
+            }
+          }
+        },
+        [_vm._v("Next")]
       ),
       _vm._v(" "),
       _c("hr"),

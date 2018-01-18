@@ -20,11 +20,10 @@ class ListingController extends Controller
     {
         $user = Auth::user();
 
-        $listings = $user->listings;
+        $perPage = 3;
 
-        foreach($listings as $listing) {
-            $listing->contact;
-        }
+        $listings = $user->listings()->with('contact')->paginate($perPage);
+
 
         return response()->json([
             'listings' => $listings

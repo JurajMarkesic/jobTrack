@@ -36,6 +36,10 @@ class JoobleApiController extends Controller
 
         $listings = $responseBody->jobs;
 
+        if(!count($listings)) {                                               //triggers if there are no results for this query
+            return response('No listings available.', 200);
+        }
+
         return response()->json([
             'listings' => $listings,
             'msg' => 'Listings fetched successfully.'

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Auth;
 use Mockery\Exception;
+use DB;
 
 class ListingController extends Controller
 {
@@ -16,13 +17,28 @@ class ListingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
 
-        $perPage = 3;
+        $perPage = 3;  //Determines how many listings per page
 
-        $listings = $user->listings()->with('contact')->paginate($perPage);
+        $sortMethod = $request->input('sort');  // default/date/rating
+
+        if($sortMethod == "date") {
+             $listings = $user->listings()
+                 ->join('contacts', 'listings.id', '=', 'contacts.owner_id')  //joins listings and contacts table
+                 ->orderBy(DB::raw('-applied_on'), 'desc')->paginate($perPage);          //and orders them by applied_on date
+        }else if($sortMethod == "rating") {
+            $listings = $user->listings()
+                ->join('contacts', 'listings.id', '=', 'contacts.owner_id') //joins listings and contacts table
+                ->orderBy('rating', 'DESC')->paginate($perPage);                      //and orders them by rating(priority)
+        }else {
+            $listings = $user->listings()
+                ->join('contacts', 'listings.id', '=', 'contacts.owner_id')
+                ->paginate($perPage);                                                               //if sort method
+        }                                                                                           // is default
+
 
 
         return response()->json([
@@ -47,7 +63,7 @@ class ListingController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
 
-    public function check(Request $request)
+    public function check(Request $request)                         //checks if user already saved the listing
     {
         $listingTitle = $request->input('listingTitle');
         $listingCompany = $request->input('listingCompany');

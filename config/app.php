@@ -133,7 +133,7 @@ return [
    |
    */
 
-    'log' => 'errorlog',
+    'log' => 'single',
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

@@ -1,6 +1,7 @@
 <template>
     <div class="mt-5">
         <templisting v-for="listing in sharedState.joobleListings" :listing="listing" :key="listing.id"></templisting>
+        <p v-if="!sharedState.joobleListings" class="text-danger lead">Unfortunately there are no listing for that keyword.</p>
     </div>
 </template>
 

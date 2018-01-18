@@ -10,7 +10,7 @@ class PageController extends Controller
     public function landing()
     {
         if(Auth::check()) {
-            return redirect('/home');
+            return redirect('/home');     //landing page is only for guests
         }
 
         return view('welcome');

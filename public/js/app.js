@@ -57800,6 +57800,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -57826,9 +57827,21 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "mt-5" },
-    _vm._l(_vm.sharedState.joobleListings, function(listing) {
-      return _c("templisting", { key: listing.id, attrs: { listing: listing } })
-    })
+    [
+      _vm._l(_vm.sharedState.joobleListings, function(listing) {
+        return _c("templisting", {
+          key: listing.id,
+          attrs: { listing: listing }
+        })
+      }),
+      _vm._v(" "),
+      !_vm.sharedState.joobleListings
+        ? _c("p", { staticClass: "text-danger lead" }, [
+            _vm._v("Unfortunately there are no listing for that keyword.")
+          ])
+        : _vm._e()
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -58158,8 +58171,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             if (typeof page_url === 'undefined') {
-                page_url = 'http://jooble.oo/listings';
+                page_url = 'http://jooble.oo/listings' + '?sort=' + this.sortMethod;
+            } else {
+                page_url = page_url + '&sort=' + this.sortMethod;
             }
+
             axios.get(page_url).then(function (response) {
                 console.log(response.data);
                 _this.listings = response.data.listings.data;
@@ -58169,22 +58185,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log(error.data);
             });
         },
-        sortListings: function sortListings() {
 
-            if (this.sortMethod === "default") {
-                this.listings = _.orderBy(this.listings, [function (o) {
-                    return o.title;
-                }]);
-            } else if (this.sortMethod === "date") {
-                this.listings = _.orderBy(this.listings, [function (o) {
-                    return o.contact.applied_on;
-                }]);
-            } else {
-                this.listings = _.orderBy(this.listings, [function (o) {
-                    return o.rating;
-                }], ['desc']);
-            }
-        },
+        // sortListings() {
+        //
+        //     if(this.sortMethod === "default") {
+        //         this.listings = _.orderBy(this.listings, [function(o) { return o.title; }]);
+        //     } else if(this.sortMethod === "date") {
+        //         this.listings = _.orderBy(this.listings, [function(o) { return o.contact.applied_on; }]);
+        //     } else {
+        //         this.listings = _.orderBy(this.listings, [function(o) { return o.rating; }], ['desc']);
+        //     }
+        // },
         makePagination: function makePagination(data) {
             this.pagination = {
                 current_page: data.current_page,
@@ -58224,7 +58235,7 @@ var render = function() {
                 expression: "sortMethod"
               }
             ],
-            staticClass: "form-control col-2 ml-2",
+            staticClass: "form-control col-8 col-md-3 ml-2",
             attrs: { name: "sortMethod", id: "sortMethod" },
             on: {
               change: [
@@ -58241,7 +58252,9 @@ var render = function() {
                     ? $$selectedVal
                     : $$selectedVal[0]
                 },
-                _vm.sortListings
+                function($event) {
+                  _vm.fetchListings()
+                }
               ]
             }
           },
@@ -58256,88 +58269,95 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("ul", { staticClass: "pagination col-5 offset-1 mt-1" }, [
-          _c(
-            "li",
-            {
-              class: {
-                "page-item": true,
-                disabled: !_vm.pagination.prev_page_url
-              }
-            },
-            [
-              _c(
-                "a",
-                {
-                  staticClass: "page-link",
-                  attrs: {
-                    href: "#",
-                    "aria-label": "Previous",
-                    disabled: !_vm.pagination.prev_page_url
-                  },
-                  on: {
-                    click: function($event) {
-                      _vm.fetchListings(_vm.pagination.prev_page_url)
+        _c(
+          "ul",
+          {
+            staticClass:
+              "pagination justify-content-center col-md-8 offset-md-2 col-lg-6 offset-lg-0  mt-1"
+          },
+          [
+            _c(
+              "li",
+              {
+                class: {
+                  "page-item": true,
+                  disabled: !_vm.pagination.prev_page_url
+                }
+              },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    attrs: {
+                      href: "#",
+                      "aria-label": "Previous",
+                      disabled: !_vm.pagination.prev_page_url
+                    },
+                    on: {
+                      click: function($event) {
+                        _vm.fetchListings(_vm.pagination.prev_page_url)
+                      }
                     }
-                  }
-                },
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("Previous")
+                    ])
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("li", { staticClass: "page-item disabled" }, [
+              _c(
+                "span",
+                { staticClass: "page-link", staticStyle: { color: "black" } },
                 [
-                  _c("span", { attrs: { "aria-hidden": "true" } }, [
-                    _vm._v("Previous")
-                  ])
+                  _vm._v(
+                    "Page " +
+                      _vm._s(_vm.pagination.current_page) +
+                      " of " +
+                      _vm._s(_vm.pagination.last_page)
+                  )
                 ]
               )
-            ]
-          ),
-          _vm._v(" "),
-          _c("li", { staticClass: "page-item disabled" }, [
+            ]),
+            _vm._v(" "),
             _c(
-              "span",
-              { staticClass: "page-link", staticStyle: { color: "black" } },
+              "li",
+              {
+                class: {
+                  "page-item": true,
+                  disabled: !_vm.pagination.next_page_url
+                }
+              },
               [
-                _vm._v(
-                  "Page " +
-                    _vm._s(_vm.pagination.current_page) +
-                    " of " +
-                    _vm._s(_vm.pagination.last_page)
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    attrs: {
+                      href: "#",
+                      "aria-label": "Next",
+                      disabled: !_vm.pagination.next_page_url
+                    },
+                    on: {
+                      click: function($event) {
+                        _vm.fetchListings(_vm.pagination.next_page_url)
+                      }
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("Next")
+                    ])
+                  ]
                 )
               ]
             )
-          ]),
-          _vm._v(" "),
-          _c(
-            "li",
-            {
-              class: {
-                "page-item": true,
-                disabled: !_vm.pagination.next_page_url
-              }
-            },
-            [
-              _c(
-                "a",
-                {
-                  staticClass: "page-link",
-                  attrs: {
-                    href: "#",
-                    "aria-label": "Next",
-                    disabled: !_vm.pagination.next_page_url
-                  },
-                  on: {
-                    click: function($event) {
-                      _vm.fetchListings(_vm.pagination.next_page_url)
-                    }
-                  }
-                },
-                [
-                  _c("span", { attrs: { "aria-hidden": "true" } }, [
-                    _vm._v("Next")
-                  ])
-                ]
-              )
-            ]
-          )
-        ])
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("hr"),
@@ -58600,6 +58620,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -58635,9 +58658,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 location: this.listing.location,
                 rating: this.listing.rating,
                 status: this.listing.status,
-                applied_on: this.listing.contact.applied_on,
-                contact_name: this.listing.contact.contact_name,
-                contact_email: this.listing.contact.contact_email
+                applied_on: this.listing.applied_on,
+                contact_name: this.listing.contact_name,
+                contact_email: this.listing.contact_email
             }).then(function (response) {
                 _this.edit = false;
                 console.log(response.data);
@@ -58834,6 +58857,14 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "form-group col-12 col-sm-6" }, [
+          _vm.edit
+            ? _c(
+                "label",
+                { staticClass: "col-form-label", attrs: { for: "_link" } },
+                [_vm._v("Link:")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
           _vm.edit
             ? _c("input", {
                 directives: [
@@ -59074,28 +59105,28 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.listing.contact.applied_on,
-                    expression: "listing.contact.applied_on"
+                    value: _vm.listing.applied_on,
+                    expression: "listing.applied_on"
                   }
                 ],
                 staticClass: "form-control ",
                 attrs: { id: "_applied_on", type: "date" },
-                domProps: { value: _vm.listing.contact.applied_on },
+                domProps: { value: _vm.listing.applied_on },
                 on: {
                   keyup: _vm.clearErrors,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(
-                      _vm.listing.contact,
-                      "applied_on",
-                      $event.target.value
-                    )
+                    _vm.$set(_vm.listing, "applied_on", $event.target.value)
                   }
                 }
               })
-            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.applied_on))]),
+            : _c("span", [
+                _vm.listing.applied_on
+                  ? _c("span", [_vm._v(_vm._s(_vm.listing.applied_on))])
+                  : _c("span", [_vm._v("Yet to apply.")])
+              ]),
           _vm._v(" "),
           _vm.edit
             ? _c("span", {
@@ -59118,28 +59149,24 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.listing.contact.contact_name,
-                    expression: "listing.contact.contact_name"
+                    value: _vm.listing.contact_name,
+                    expression: "listing.contact_name"
                   }
                 ],
                 staticClass: "form-control ",
                 attrs: { id: "_contact_name", type: "text" },
-                domProps: { value: _vm.listing.contact.contact_name },
+                domProps: { value: _vm.listing.contact_name },
                 on: {
                   keyup: _vm.clearErrors,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(
-                      _vm.listing.contact,
-                      "contact_name",
-                      $event.target.value
-                    )
+                    _vm.$set(_vm.listing, "contact_name", $event.target.value)
                   }
                 }
               })
-            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.contact_name))]),
+            : _c("span", [_vm._v(_vm._s(_vm.listing.contact_name))]),
           _vm._v(" "),
           _vm.edit
             ? _c("span", {
@@ -59165,8 +59192,8 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.listing.contact.contact_email,
-                    expression: "listing.contact.contact_email"
+                    value: _vm.listing.contact_email,
+                    expression: "listing.contact_email"
                   }
                 ],
                 staticClass: "form-control ",
@@ -59175,22 +59202,18 @@ var render = function() {
                   type: "email",
                   placeholder: "sophie@example.com"
                 },
-                domProps: { value: _vm.listing.contact.contact_email },
+                domProps: { value: _vm.listing.contact_email },
                 on: {
                   keyup: _vm.clearErrors,
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(
-                      _vm.listing.contact,
-                      "contact_email",
-                      $event.target.value
-                    )
+                    _vm.$set(_vm.listing, "contact_email", $event.target.value)
                   }
                 }
               })
-            : _c("span", [_vm._v(_vm._s(_vm.listing.contact.contact_email))]),
+            : _c("span", [_vm._v(_vm._s(_vm.listing.contact_email))]),
           _vm._v(" "),
           _vm.edit
             ? _c("span", {
@@ -59868,6 +59891,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -59892,12 +59916,21 @@ var render = function() {
   return _c(
     "div",
     { staticClass: " mt-5" },
-    _vm._l(_vm.sharedState.rssListings, function(listing) {
-      return _c("templisting", {
-        key: listing.title,
-        attrs: { listing: listing }
-      })
-    })
+    [
+      _vm._l(_vm.sharedState.rssListings, function(listing) {
+        return _c("templisting", {
+          key: listing.title,
+          attrs: { listing: listing }
+        })
+      }),
+      _vm._v(" "),
+      !_vm.sharedState.rssListings
+        ? _c("p", { staticClass: "text-danger lead" }, [
+            _vm._v("Unfortunately there are no listings for that keyword.")
+          ])
+        : _vm._e()
+    ],
+    2
   )
 }
 var staticRenderFns = []

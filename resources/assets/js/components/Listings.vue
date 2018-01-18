@@ -2,12 +2,12 @@
     <div>
         <div class="row">
             <label for="sortMethod" class="mt-2">Sort By</label>
-            <select name="sortMethod" id="sortMethod" class="form-control col-2 ml-2" v-model="sortMethod" @change="sortListings">
+            <select name="sortMethod" id="sortMethod" class="form-control col-8 col-md-3 ml-2" v-model="sortMethod" @change="fetchListings()">
                 <option value="default">Default</option>
                 <option value="date">Date applied</option>
                 <option value="rating">Priority</option>
             </select>
-            <ul class="pagination col-5 offset-1 mt-1">
+            <ul class="pagination justify-content-center col-md-8 offset-md-2 col-lg-6 offset-lg-0  mt-1">
                 <li :class="{'page-item': true, 'disabled': !pagination.prev_page_url}">
                     <a class="page-link" href="#" aria-label="Previous" @click="fetchListings(pagination.prev_page_url)" :disabled="!pagination.prev_page_url">
                         <span aria-hidden="true">Previous</span>
@@ -65,10 +65,12 @@
         methods: {
             fetchListings(page_url) {
                 if(typeof(page_url) === 'undefined') {
-                    page_url = 'http://jooble.oo/listings'
+                    page_url = 'http://jooble.oo/listings' + '?sort=' + this.sortMethod;
+                }else {
+                    page_url = page_url + '&sort=' + this.sortMethod;
                 }
-                axios.get(page_url)
-                    .then((response) => {
+
+                axios.get(page_url).then((response) => {
                         console.log(response.data);
                         this.listings = response.data.listings.data;
                         this.makePagination(response.data.listings)
@@ -77,16 +79,16 @@
                         console.log(error.data);
                 })
             },
-            sortListings() {
-                
-                if(this.sortMethod === "default") {
-                    this.listings = _.orderBy(this.listings, [function(o) { return o.title; }]);
-                } else if(this.sortMethod === "date") {
-                    this.listings = _.orderBy(this.listings, [function(o) { return o.contact.applied_on; }]);
-                } else {
-                    this.listings = _.orderBy(this.listings, [function(o) { return o.rating; }], ['desc']);
-                }
-            },
+            // sortListings() {
+            //
+            //     if(this.sortMethod === "default") {
+            //         this.listings = _.orderBy(this.listings, [function(o) { return o.title; }]);
+            //     } else if(this.sortMethod === "date") {
+            //         this.listings = _.orderBy(this.listings, [function(o) { return o.contact.applied_on; }]);
+            //     } else {
+            //         this.listings = _.orderBy(this.listings, [function(o) { return o.rating; }], ['desc']);
+            //     }
+            // },
             makePagination(data) {
                 this.pagination = {
                     current_page: data.current_page,

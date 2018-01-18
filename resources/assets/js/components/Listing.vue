@@ -23,6 +23,7 @@
                  <span v-if="edit" v-text="errors.location" class="form-text text-danger"></span>
              </div>
              <div class="form-group col-12 col-sm-6">
+                 <label v-if="edit" for="_link" class="col-form-label">Link:</label>
                  <input v-if="edit" class="form-control " id="_link" type="text" v-model="listing.link" @keyup="clearErrors">
                  <a target="_blank" v-else :href="listing.link" class="">Link</a>
                  <span v-if="edit" v-text="errors.link" class="form-text text-danger"></span>
@@ -66,21 +67,23 @@
         <div :class="{row: true, 'd-none': contactHide}">
              <div class="form-group col-12 col-sm-4 mb-0">
                  <label  for="_applied_on" class=" col-form-label">Applied on:</label>
-                 <input v-if="edit" class="form-control " id="_applied_on" type="date" v-model="listing.contact.applied_on"  @keyup="clearErrors">
-                 <span v-else>{{listing.contact.applied_on}}</span>
+                 <input v-if="edit" class="form-control " id="_applied_on" type="date" v-model="listing.applied_on"  @keyup="clearErrors">
+                 <span v-else>
+                     <span v-if="listing.applied_on">{{listing.applied_on}}</span><span v-else>Yet to apply.</span>
+                 </span>
                  <span v-if="edit" v-text="errors.applied_on" class="form-text text-danger"></span>
              </div>
              <div class="form-group col-12 col-sm-4 mb-0">
                 <label  for="_contact_name" class=" col-form-label">Contact Name:</label>
-                <input v-if="edit" class="form-control " id="_contact_name" type="text" v-model="listing.contact.contact_name"  @keyup="clearErrors">
-                 <span v-else>{{listing.contact.contact_name}}</span>
+                <input v-if="edit" class="form-control " id="_contact_name" type="text" v-model="listing.contact_name"  @keyup="clearErrors">
+                 <span v-else>{{listing.contact_name}}</span>
                  <span v-if="edit" v-text="errors.contact_name" class="form-text text-danger"></span>
              </div>
              <div class="form-group col-12 col-sm-4 mb-0">
                 <label for="_contact_email" class=" col-form-label">Contact email:</label>
                 <input v-if="edit" class="form-control " id="_contact_email" type="email"  placeholder="sophie@example.com"
-                       v-model="listing.contact.contact_email"  @keyup="clearErrors">
-                 <span v-else>{{listing.contact.contact_email}}</span>
+                       v-model="listing.contact_email"  @keyup="clearErrors">
+                 <span v-else>{{listing.contact_email}}</span>
                  <span v-if="edit" v-text="errors.contact_email" class="form-text text-danger"></span>
              </div>
         </div>
@@ -128,9 +131,9 @@
                     location: this.listing.location,
                     rating: this.listing.rating,
                     status: this.listing.status,
-                    applied_on: this.listing.contact.applied_on,
-                    contact_name: this.listing.contact.contact_name,
-                    contact_email: this.listing.contact.contact_email
+                    applied_on: this.listing.applied_on,
+                    contact_name: this.listing.contact_name,
+                    contact_email: this.listing.contact_email
                 }).then((response) => {
                     this.edit = false;
                     console.log(response.data);

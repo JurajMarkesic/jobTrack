@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class RSSfeedController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|
+     * \Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
+     */
+
     public function getListings(Request $request)
     {
         $this->validate($request, [
@@ -15,9 +21,28 @@ class RSSfeedController extends Controller
 
         $keywords = $request->input('keywords');
 
-        $rss = simplexml_load_file('https://www.posao.hr/poslovi/izraz/' . $keywords . '/prikaz/rss/',
-            'SimpleXMLElement',  LIBXML_NOCDATA);
+        try {
+            $rss = simplexml_load_file('https://www.posao.hr/poslovi/izraz/' . $keywords . '/prikaz/rss/',
+                'SimpleXMLElement', LIBXML_NOCDATA);
+        } catch (\Exception $e) {
+            return response("No listings for that keyword.", 200);     //triggers if no listings match the query
+        }                                                                           // or if something is wrong with the site
 
+        $listings = $this->parseXML($rss);
+
+        return response()->json([
+            'listings' => $listings
+        ]);
+    }
+
+
+    /**
+     * @param $rss
+     * @return array
+     */
+
+    public function parseXML($rss)                                          //parses the xml and makes an arry of TempListings
+    {
         $listings = [];
 
         foreach ($rss->channel->item as $item) {
@@ -36,8 +61,6 @@ class RSSfeedController extends Controller
             array_push($listings, $listing);
         }
 
-        return response()->json([
-            'listings' => $listings
-        ]);
+        return $listings;
     }
 }
